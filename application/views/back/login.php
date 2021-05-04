@@ -30,7 +30,9 @@
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Sign in to start your session</p>
 
-                <form action="../../index3.html" method="post">
+                <?= $this->session->flashdata('message'); ?>
+                <?= validation_errors() ?>
+                <form action="<?= base_url('auth/proses_login') ?>" method="post">
                     <div class="input-group mb-3">
                         <input type="email" class="form-control" placeholder="Email">
                         <div class="input-group-append">

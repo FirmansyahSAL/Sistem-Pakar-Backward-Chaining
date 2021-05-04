@@ -49,4 +49,51 @@ class Auth extends CI_Controller
             $this->load->view('back/register');
         }
     }
+
+
+    function proses_login()
+    {
+        $this->form_validation->set_rules('email', 'Email', 'trim|required');
+        $this->form_validation->set_rules('password', 'Password', 'trim|required');
+
+        $this->form_validation->set_message('required', '{field} Harus di isi');
+        $this->form_validation->set_message('valid_email', '{field} anda harus valid');
+
+        $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
+
+
+        if ($this->form_validation->run() == TRUE) {
+            $user = $this->M_auth->get_email_user($this->input->post('email'));
+            if (!$user) {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger"> Email tidak ditemukan </div>');
+                redirect('auth/login', 'refresh');
+            } else if ($user->status == '0') {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger"> User tidak aktif, silahkan hubungi admin</div>');
+                redirect('auth/login', 'refresh');
+            } else if (!password_verify($this->input->post('password'), $user->password)) {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger"> password anda salah</div>');
+                redirect('auth/login', 'refresh');
+            } else {
+                $session = array(
+                    'id_users'    => $user->id_users,
+                    'username'    => $user->username,
+                    'email'       => $user->email,
+                    'level_user'  => $user->level,
+                );
+                $this->session->set_userdata($session);
+                redirect('dashboard');
+            }
+        } else {
+            $data['title'] = 'Login pages';
+            $this->load->view('back/login', $data);
+        }
+    }
+
+    function logout()
+    {
+        $this->session->sess_destroy();
+        $this->session->set_flashdata('message', '<div class="alert alert-danger"> Anda berhasil Logout </div>');
+
+        redirect('auth/login');
+    }
 }
