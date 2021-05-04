@@ -5,6 +5,11 @@ class Dashboard extends CI_Controller
 {
     public function index()
     {
-        $this->load->view('back/dashboard');
+        $this->template->load('back/template', 'back/dashboard');
+    }
+
+    function login()
+    {
+        $this->load->view('back/login');
     }
 }
