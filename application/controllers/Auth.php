@@ -37,7 +37,7 @@ class Auth extends CI_Controller
                 'username' => $this->input->post('username'),
                 'email' => $this->input->post('email'),
                 'password' => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
-                'status' => 1,
+                'status_user' => 1,
                 'level_user' => 1,
             );
             //var_dump($data);
