@@ -30,6 +30,8 @@
             <div class="card-body register-card-body">
                 <p class="login-box-msg">Register a new membership</p>
 
+                <?= $this->session->flashdata('message'); ?>
+                <?= validation_errors() ?>
                 <form action="<?= base_url('auth/proses_register') ?>" method="post">
                     <div class="input-group mb-3">
                         <input type="text" name="username" class="form-control" placeholder="Username">
@@ -40,7 +42,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="email" name="email" class="form-control" placeholder="Email">
+                        <input type="text" name="email" value="<?= set_value('email') ?>" class="form-control" placeholder="Email">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
