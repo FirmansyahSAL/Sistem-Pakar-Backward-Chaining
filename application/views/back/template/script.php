@@ -1,7 +1,7 @@
 <!-- jQuery -->
-<script src="jquery/jquery.min.js"></script>
+<script src="<?= base_url() ?>assets/back/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="<?= base_url() ?>assets/back/plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
     $.widget.bridge('uibutton', $.ui.button)
@@ -29,9 +29,5 @@
 <!-- AdminLTE App -->
 <script src="<?= base_url() ?>assets/back/dist/js/adminlte.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="<?= base_url() ?>assets/back/dist/js/pages/dashboard.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="<?= base_url() ?>assets/back/dist/js/demo.js"></script>
-</body>
 
 </html>
