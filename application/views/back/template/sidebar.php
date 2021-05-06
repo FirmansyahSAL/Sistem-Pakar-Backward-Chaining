@@ -43,19 +43,19 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pages/layout/top-nav.html" class="nav-link">
+                            <a href="<?= base_url('divisi') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Data Divisi</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                            <a href="<?= base_url('jabatan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Data Jabatan</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/layout/boxed.html" class="nav-link">
+                            <a href="<?= base_url('karyawan') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Data Karyawan</p>
                             </a>
@@ -72,7 +72,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pages/forms/general.html" class="nav-link">
+                            <a href="<?= base_url('tiket') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Data Tiket</p>
                             </a>
@@ -81,7 +81,7 @@
                 </li>
                 <li class="nav-header">Laporan Tiket</li>
                 <li class="nav-item">
-                    <a href="https://adminlte.io/docs/3.0" class="nav-link">
+                    <a href="<?= base_url('laporan') ?>" class="nav-link">
                         <i class="nav-icon fas fa-clipboard"></i>
                         <p>Laporan</p>
                     </a>
@@ -89,13 +89,13 @@
 
                 <li class="nav-header">Profile</li>
                 <li class="nav-item">
-                    <a href="https://adminlte.io/docs/3.0" class="nav-link">
+                    <a href="<?= base_url('profile') ?>" class="nav-link">
                         <i class="nav-icon fas fa-user"></i>
                         <p>Profile User</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="https://adminlte.io/docs/3.0" class="nav-link">
+                    <a href="<?= base_url('logout') ?>" class="nav-link">
                         <i class="nav-icon fas fa-sign-out-alt"></i>
                         <p>Log out</p>
                     </a>
