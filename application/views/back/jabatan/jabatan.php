@@ -13,18 +13,19 @@
                     <div class="card-header">
                         <h3 class="card-title">Form Jabatan</h3>
                     </div>
-                    <form role="form">
-                        <div class="card-body">
+                    <div class="card-body">
+                        <form action="<?= base_url('jabatan/save_jabatan') ?>" method="post">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Jabatan</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="jabatan">
+                                <label>Jabatan</label>
+                                <input type="text" name="jabatan" class="form-control" placeholder="jabatan">
                             </div>
-                        </div>
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-info">Save</button>
-                            <button type="submit" class="btn btn-default float-right">Cancel</button>
-                        </div>
-                    </form>
+
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-info">Save</button>
+                                <button type="reset" class="btn btn-default float-right">Reset</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
             <!--/.col (left) -->
@@ -50,7 +51,7 @@
                                     <tr>
                                         <td><?= $no++ ?></td>
                                         <td><?= $row->jabatan ?></td>
-                                        <td>EDIT | DELETE</td>
+                                        <td><button type="button" class="btn btn-secondary">Edit</button> | <button type="button" class="btn btn-danger">Delete</button></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>

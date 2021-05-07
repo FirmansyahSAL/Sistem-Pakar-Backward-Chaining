@@ -31,7 +31,7 @@ class Jabatan extends CI_Controller
             $this->session->set_flashdata('message', '<div class="alert alert-info"> Data Berhasil disimpan </div>');
             redirect('jabatan', 'refresh');
         } else {
-            $this->add_jabatan();
+            $this->index();
         }
     }
 
