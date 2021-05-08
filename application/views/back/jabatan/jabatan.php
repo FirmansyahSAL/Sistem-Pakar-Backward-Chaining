@@ -62,7 +62,7 @@
                                     <tr>
                                         <td><?= $no++ ?></td>
                                         <td><?= $row->jabatan ?></td>
-                                        <td><a href="<?= base_url('jabatan/edit_jabatan/' . $row->id_jabatan) ?>" class="btn btn-secondary">Edit</a> | <a href="<?= base_url('jabatan/delete_jabatan/' . $row->id_jabatan) ?>" class="btn btn-danger" onclick="return confirm('Yakin Menghapus Data ini ?')">Delete</a></td>
+                                        <td><a href="<?= base_url('jabatan/edit_jabatan/' . $row->id_jabatan) ?>" class="btn btn-success">Edit</a> | <a href="<?= base_url('jabatan/delete_jabatan/' . $row->id_jabatan) ?>" class="btn btn-danger" onclick="return confirm('Yakin Menghapus Data ini ?')">Delete</a></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>

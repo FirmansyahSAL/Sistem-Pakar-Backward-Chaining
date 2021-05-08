@@ -1,9 +1,3 @@
-<link href="<?= base_url() ?>assets/back/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-<link href="<?= base_url() ?>assets/back/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-<!-- Theme style -->
-<link href="<?= base_url() ?>assets/back/dist/css/adminlte.min.css">
-<!-- Google Font: Source Sans Pro -->
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 <div class="content-wrapper">
     <section class="content-header">
         <div class="container-fluid">
@@ -74,29 +68,3 @@
         </div>
     </section>
 </div>
-<script src="<?= base_url() ?>assets/back/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="<?= base_url() ?>assets/back/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- DataTables -->
-<script src="<?= base_url() ?>assets/back/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="<?= base_url() ?>assets/back/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="<?= base_url() ?>assets/back/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="<?= base_url() ?>assets/back/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-
-<script>
-    $(function() {
-        $("#example1").DataTable({
-            "responsive": true,
-            "autoWidth": false,
-        });
-        $('#example2').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-            "responsive": true,
-        });
-    });
-</script>
