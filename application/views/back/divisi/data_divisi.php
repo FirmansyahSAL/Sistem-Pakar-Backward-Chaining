@@ -11,16 +11,16 @@
             <div class="col-md-6">
                 <div class="card card-info">
                     <div class="card-header">
-                        <h3 class="card-title">Form Jabatan</h3>
+                        <h3 class="card-title">Form Divisi</h3>
                     </div>
                     <div class="card-body">
 
                         <?= $this->session->flashdata('message'); ?>
                         <?= validation_errors() ?>
-                        <form action="<?= base_url('jabatan/save_jabatan') ?>" method="post">
+                        <form action="<?= base_url('divisi/save_divisi') ?>" method="post">
                             <div class="form-group">
-                                <label>Jabatan</label>
-                                <input type="text" name="jabatan" class="form-control" placeholder="jabatan">
+                                <label>Divisi</label>
+                                <input type="text" name="divisi" class="form-control" placeholder="divisi">
                             </div>
 
                             <div class="card-footer">
@@ -36,7 +36,7 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Data Jabatan</h3>
+                        <h3 class="card-title">Data Divisi</h3>
                     </div>
                     <div class="card-body">
                         <table class="table table-bordered">
@@ -44,7 +44,7 @@
 
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama Jabatan</th>
+                                    <th>Nama Divisi</th>
                                     <th>Action</th>
                                 </tr>
 
@@ -52,11 +52,11 @@
                             <tbody>
                                 <?php
                                 $no = 1;
-                                foreach ($jabatan as $row) { ?>
+                                foreach ($divisi as $row) { ?>
                                     <tr>
                                         <td><?= $no++ ?></td>
-                                        <td><?= $row->jabatan ?></td>
-                                        <td><a href="<?= base_url('jabatan/edit_jabatan/' . $row->id_jabatan) ?>" class="btn btn-success">Edit</a> | <a href="<?= base_url('jabatan/delete_jabatan/' . $row->id_jabatan) ?>" class="btn btn-danger" onclick="return confirm('Yakin Menghapus Data ini ?')">Delete</a></td>
+                                        <td><?= $row->divisi ?></td>
+                                        <td><a href="<?= base_url('divisi/edit_divisi/' . $row->id_divisi) ?>" class="btn btn-success">Edit</a> | <a href="<?= base_url('divisi/delete_divisi/' . $row->id_divisi) ?>" class="btn btn-danger" onclick="return confirm('Yakin Menghapus Data ini ?')">Delete</a></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>

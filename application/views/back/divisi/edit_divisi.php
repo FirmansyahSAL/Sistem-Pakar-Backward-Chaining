@@ -11,20 +11,24 @@
             <div class="col-md-6">
                 <div class="card card-info">
                     <div class="card-header">
-                        <h3 class="card-title">Form Jabatan</h3>
+                        <h3 class="card-title">Form Edit Divisi</h3>
                     </div>
-                    <form role="form">
-                        <div class="card-body">
+                    <div class="card-body">
+                        <?= $this->session->flashdata('message'); ?>
+                        <?= validation_errors() ?>
+                        <form action="<?= base_url('divisi/update_divisi') ?>" method="post">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Jabatan</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="jabatan">
+                                <label>Divisi</label>
+                                <input type="hidden" name="id_divisi" value="<?= $div->id_divisi ?>" class="form-control">
+                                <input type="text" name="divisi" value="<?= $div->divisi ?>" class="form-control" placeholder="divisi">
                             </div>
-                        </div>
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-info">Save</button>
-                            <button type="submit" class="btn btn-default float-right">Cancel</button>
-                        </div>
-                    </form>
+
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-info">Save</button>
+                                <button type="reset" class="btn btn-default float-right">Reset</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
             <!--/.col (left) -->
@@ -37,20 +41,22 @@
                     <div class="card-body">
                         <table class="table table-bordered">
                             <thead>
+
                                 <tr>
                                     <th>No</th>
                                     <th>Nama Divisi</th>
                                     <th>Action</th>
                                 </tr>
+
                             </thead>
                             <tbody>
                                 <?php
                                 $no = 1;
-                                foreach ($jabatan as $row) { ?>
+                                foreach ($divisi as $row) { ?>
                                     <tr>
                                         <td><?= $no++ ?></td>
-                                        <td><?= $row->jabatan ?></td>
-                                        <td>EDIT | DELETE</td>
+                                        <td><?= $row->divisi ?></td>
+                                        <td><a href="<?= base_url('divisi/edit_divisi/' . $row->id_divisi) ?>" class="btn btn-secondary">Edit</a> | <a href="<?= base_url('divisi/delete_divisi/' . $row->id_divisi) ?>" class="btn btn-danger">Delete</a></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>
