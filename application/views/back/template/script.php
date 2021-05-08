@@ -30,4 +30,5 @@
 <script src="<?= base_url() ?>assets/back/dist/js/adminlte.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 
+
 </html>

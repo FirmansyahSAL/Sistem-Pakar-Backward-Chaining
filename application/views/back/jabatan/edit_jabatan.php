@@ -17,16 +17,16 @@
             <div class="col-md-6">
                 <div class="card card-info">
                     <div class="card-header">
-                        <h3 class="card-title">Form Jabatan</h3>
+                        <h3 class="card-title">Form Edit Jabatan</h3>
                     </div>
                     <div class="card-body">
-
                         <?= $this->session->flashdata('message'); ?>
                         <?= validation_errors() ?>
-                        <form action="<?= base_url('jabatan/save_jabatan') ?>" method="post">
+                        <form action="<?= base_url('jabatan/update_jabatan') ?>" method="post">
                             <div class="form-group">
                                 <label>Jabatan</label>
-                                <input type="text" name="jabatan" class="form-control" placeholder="jabatan">
+                                <input type="hidden" name="id_jabatan" value="<?= $jbt->id_jabatan ?>" class="form-control" placeholder="jabatan">
+                                <input type="text" name="jabatan" value="<?= $jbt->jabatan ?>" class="form-control" placeholder="jabatan">
                             </div>
 
                             <div class="card-footer">
@@ -62,7 +62,7 @@
                                     <tr>
                                         <td><?= $no++ ?></td>
                                         <td><?= $row->jabatan ?></td>
-                                        <td><a href="<?= base_url('jabatan/edit_jabatan/' . $row->id_jabatan) ?>" class="btn btn-secondary">Edit</a> | <a href="<?= base_url('jabatan/delete_jabatan/' . $row->id_jabatan) ?>" class="btn btn-danger" onclick="return confirm('Yakin Menghapus Data ini ?')">Delete</a></td>
+                                        <td><a href="<?= base_url('jabatan/edit_jabatan/' . $row->id_jabatan) ?>" class="btn btn-secondary">Edit</a> | <a href="<?= base_url('jabatan/delete_jabatan/' . $row->id_jabatan) ?>" class="btn btn-danger">Delete</a></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>

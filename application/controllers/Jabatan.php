@@ -67,7 +67,7 @@ class Jabatan extends CI_Controller
         ];
 
         $this->M_jabatan->update($this->input->post('id_jabatan'), $data);
-        $this->session->set_flashdata('message', '<div class="alert alert-info"> Data Berhasil disimpan</div>');
+        $this->session->set_flashdata('message', '<div class="alert alert-danger"> Data Berhasil disimpan</div>');
         redirect('jabatan', 'refresh');
     }
 }
