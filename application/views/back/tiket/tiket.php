@@ -7,14 +7,12 @@
     </section>
     <!-- Main content -->
     <section class="content">
-        <div class="row">
-            <!--/.col (left) -->
-            <!-- right column -->
-            <div class="col-md-12">
+        <div class="row-mt-2">
+            <div class="col-12">
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">Data Tiket</h3>
-                        <a href="<?= base_url('tiket/add_tiket') ?>"><button type="button" data-toggle="modal" data-target="#form_tiket" class="btn btn-primary float-right">Tambah Data</button></a>
+                        <a href="<?= base_url('tiket/add_tiket') ?>" data-toggle="modal" data-target="#form_tiket" class="btn btn-primary btn-sm float-right">Tambah Data</a>
                     </div>
                     <div class="card-body">
                         <?= $this->session->flashdata('message'); ?>
