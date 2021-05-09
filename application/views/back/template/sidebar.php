@@ -89,13 +89,13 @@
 
                 <li class="nav-header">Profile</li>
                 <li class="nav-item">
-                    <a href="<?= base_url('profile') ?>" class="nav-link">
+                    <a href="<?= base_url('karyawan/profile') ?>" class="nav-link">
                         <i class="nav-icon fas fa-user"></i>
                         <p>Profile User</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= base_url('logout') ?>" class="nav-link">
+                    <a href="<?= base_url('auth/logout') ?>" class="nav-link">
                         <i class="nav-icon fas fa-sign-out-alt"></i>
                         <p>Log out</p>
                     </a>
