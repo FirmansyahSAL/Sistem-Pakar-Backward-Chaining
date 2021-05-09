@@ -8,7 +8,6 @@
     <!-- Main content -->
     <section class="content">
         <div class="row">
-
             <!--/.col (left) -->
             <!-- right column -->
             <div class="col-md-12">
@@ -19,7 +18,6 @@
                     </div>
 
                     <div class="card-body">
-
                         <?= $this->session->flashdata('message'); ?>
                         <table class="table table-bordered">
                             <thead>

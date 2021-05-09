@@ -12,6 +12,10 @@ class Tiket extends CI_Controller
         $this->template->load('back/template', 'back/tiket/tiket', $data);
     }
 
+    function add_tiket()
+    {
+    }
+
     function save_tiket()
     {
         $this->form_validation->set_rules('judul_tiket', 'Judul Tiket', 'trim|required');

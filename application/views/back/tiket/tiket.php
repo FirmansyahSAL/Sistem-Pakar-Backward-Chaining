@@ -1,63 +1,65 @@
-<div class="subnavbar">
-
-    <div class="container">
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+            </div>
+        </div>
+    </section>
+    <!-- Main content -->
+    <section class="content">
         <div class="row">
-
-            <div class="span12">
-
-                <div class="widget ">
-                    <div class="widget-header"> <i class="icon-th-list"></i>
-                        <h3>Data Tiket</h3>
+            <!--/.col (left) -->
+            <!-- right column -->
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Data Tiket</h3>
+                        <a href="<?= base_url('tiket/add_tiket') ?>"><button type="button" data-toggle="modal" data-target="#form_tiket" class="btn btn-primary float-right">Tambah Data</button></a>
                     </div>
-
-
-                    <div class="widget-content">
-                        <div class="span11">
-                            <a href="<?= base_url('tiket/add_tiket') ?>"><button type="button" data-toggle="modal" data-target="#form_tiket" class="btn btn-primary">Tambah Data</button></a>
-
-                            <p>&nbsp;</p>
-
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-hovered">
+                    <div class="card-body">
+                        <?= $this->session->flashdata('message'); ?>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>No tiket</th>
+                                    <th>Judul Tiket</th>
+                                    <th>Status Tiket</th>
+                                    <th>Konfirmasi</th>
+                                    <th>action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $no = 1;
+                                foreach ($tiket as $row) { ?>
                                     <tr>
-                                        <th>No</th>
-                                        <th>No tiket</th>
-                                        <th>Judul Tiket</th>
-                                        <th>Status Tiket</th>
-                                        <th>Konfirmasi</th>
-                                        <th>action</th>
-                                    </tr>
-                                    <tbody>
-                                        <?php
-                                        $no = 1;
-                                        foreach ($tiket as $row) { ?>
-                                            <tr>
-                                                <td><?= $no++ ?></td>
-                                                <td><?= $row->no_tiket ?></td>
-                                                <td><?= $row->judul_tiket ?></td>
-                                                <td>
-                                                    <?php if ($row->status_tiket == '0') {
-                                                        echo '<span class="badge badge-warning"> Waiting...</span>';
-                                                    } else if ($row->status_tiket == '1') {
-                                                        echo '<span class="badge badge-info"> Response...</span>';
-                                                    } else if ($row->status_tiket == '2') {
-                                                        echo '<span class="badge badge-success"> Process...</span>';
-                                                    } else {
-                                                        echo '<span class="badge badge-danger"> solved...</span>';
-                                                    }
-                                                    ?>
-                                                </td>
-                                                <td>
-                                                    <?php
-                                                    if ($row->status_tiket == '0') {
-                                                        echo '<a href= "javascript:void(0);" data-toggle="modal" data-target="#modal-tiket" id="select_tiket" 
+                                        <td><?= $no++ ?></td>
+                                        <td><?= $row->no_tiket ?></td>
+                                        <td><?= $row->judul_tiket ?></td>
+                                        <td>
+                                            <?php if ($row->status_tiket == '0') {
+                                                echo '<span class="badge badge-warning"> Waiting...</span>';
+                                            } else if ($row->status_tiket == '1') {
+                                                echo '<span class="badge badge-info"> Response...</span>';
+                                            } else if ($row->status_tiket == '2') {
+                                                echo '<span class="badge badge-success"> Process...</span>';
+                                            } else {
+                                                echo '<span class="badge badge-danger"> solved...</span>';
+                                            }
+                                            ?>
+                                        </td>
+                                        <td>
+                                            <?php
+                                            if ($row->status_tiket == '0') {
+                                                echo '<a href= "javascript:void(0);" data-toggle="modal" data-target="#modal-tiket" id="select_tiket" 
                                                     data-id_tiket="' . $row->id_tiket . '"
                                                     data-status_tiket="' . $row->status_tiket . '"
                                                     class="btn btn-success">
                                                     Confirm 
                                                 </a>';
-                                                    } else if ($row->status_tiket == '1') {
-                                                        echo '<a href="javascript:void(0);" data-toggle="modal" data-target="#modal-reply" id="reply-message"
+                                            } else if ($row->status_tiket == '1') {
+                                                echo '<a href="javascript:void(0);" data-toggle="modal" data-target="#modal-reply" id="reply-message"
                                                         data-tiket_id="' . $row->id_tiket . '"
                                                         data-id_tiket_id="' . $row->id_tiket . '"
                                                         data-judul_tiket="' . $row->judul_tiket . '"
@@ -65,38 +67,34 @@
                                                         class="btn btn-warning">
                                                        Reply Message 
                                                     </a>';
-                                                    } else if ($row->status_tiket == '2') {
-                                                        echo '<a href="javascript:void(0);" data-toggle="modal" data-target="#modalclosetiket" id="ctiket"
+                                            } else if ($row->status_tiket == '2') {
+                                                echo '<a href="javascript:void(0);" data-toggle="modal" data-target="#modalclosetiket" id="ctiket"
                                                         data-closetiket="' . $row->id_tiket . '"
                                                         data-closestatus="' . $row->status_tiket . '"
                                                           class="btn btn-primary">
                                                        Close 
                                                     </a>';
-                                                    } else {
-                                                        echo '<a href="javascript:void(0);" class="btn btn-danger">
+                                            } else {
+                                                echo '<a href="javascript:void(0);" class="btn btn-danger">
                                                         Closed
                                                         </a>';
-                                                    }
+                                            }
 
-                                                    ?>
-                                                </td>
-                                                <td>
-                                                    <a href="<?= base_url('tiket/detail_tiket/' . $row->no_tiket) ?>"><button type='button' class='btn btn-info'>Detail</button></a>
-                                                    <a href="<?= base_url('tiket/delete_tiket/' . $row->id_tiket) ?>"><button type='button' class='btn btn-danger' onclick="return confirm('Are you sure to delete?')">Hapus</button></a>
-                                                </td>
-                                            </tr>
-                                        <?php } ?>
-
-                                    </tbody>
-                                </table>
-                                <p class='paging' align='center'> </p>
-                            </div>
-                        </div>
+                                            ?>
+                                        </td>
+                                        <td>
+                                            <a href="<?= base_url('tiket/detail_tiket/' . $row->no_tiket) ?>"><button type='button' class='btn btn-info'>Detail</button></a>
+                                            <a href="<?= base_url('tiket/delete_tiket/' . $row->id_tiket) ?>"><button type='button' class='btn btn-danger' onclick="return confirm('Are you sure to delete?')">Hapus</button></a>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </div>
 
 <div class="modal fade" id="form_tiket">
