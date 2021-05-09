@@ -89,7 +89,7 @@
 
                 <li class="nav-header">Profile</li>
                 <li class="nav-item">
-                    <a href="<?= base_url('karyawan/profile') ?>" class="nav-link">
+                    <a href="<?= base_url('karyawan/profile/' . $this->session->id_users); ?>" class="nav-link">
                         <i class="nav-icon fas fa-user"></i>
                         <p>Profile User</p>
                     </a>
