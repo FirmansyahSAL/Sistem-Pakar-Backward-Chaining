@@ -5,15 +5,13 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Dashboard <?= $this->session->username; ?></h1>
+                    <h1 class="m-0 text-dark">Dashboard</h1>
+
                 </div><!-- /.col -->
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard v1</li>
-                    </ol>
-                </div><!-- /.col -->
+
             </div><!-- /.row -->
+            <div class="alert alert-success">Selamat Datang
+                <?= $this->session->username; ?></div>
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
@@ -29,7 +27,7 @@
                         <div class="inner">
                             <h3>150</h3>
 
-                            <p>New Orders</p>
+                            <p>Menunggu Respon</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-bag"></i>
@@ -44,7 +42,7 @@
                         <div class="inner">
                             <h3>53<sup style="font-size: 20px">%</sup></h3>
 
-                            <p>Bounce Rate</p>
+                            <p>Proses Pengerjaan</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
@@ -59,7 +57,7 @@
                         <div class="inner">
                             <h3>44</h3>
 
-                            <p>User Registrations</p>
+                            <p>Tiket Sukses</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-person-add"></i>
@@ -74,7 +72,7 @@
                         <div class="inner">
                             <h3>65</h3>
 
-                            <p>Unique Visitors</p>
+                            <p>Karyawan</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-pie-graph"></i>
