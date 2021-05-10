@@ -3,7 +3,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Jabatan extends CI_Controller
 {
-
+    public function __construct()
+    {
+        parent::__construct();
+        cek_login();
+    }
     public function index()
     {
         $data['jabatan'] = $this->M_jabatan->get_jabatan();
