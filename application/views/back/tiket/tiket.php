@@ -137,7 +137,7 @@
                     <span aria-hidden="true">&times;</span>
             </div>
             <div class="modal-body">
-                <form action="<?= base_url('tiket/save_tiket_waiting') ?>" method="POST" enctype="multipart/form-data">
+                <form action="<?= base_url('tiket/save_tiket_waiting') ?>" method="post" enctype="multipart/form-data">
 
                     <input type="hidden" name="id_tiket" id="id_tiket" class="form-control">
                     <br>
@@ -161,7 +161,7 @@
                     <span aria-hidden="true">&times;</span>
             </div>
             <div class="modal-body">
-                <form action="<?= base_url('tiket/save_tanggapan') ?>" method="POST" enctype="multipart/form-data">
+                <form action="<?= base_url('tiket/save_tanggapan') ?>" method="post" enctype="multipart/form-data">
 
                     <input type="hidden" name="id_tiket" id="id_tiket_id" class="form-control">
                     <br>
@@ -203,7 +203,7 @@
                     <span aria-hidden="true">&times;</span>
             </div>
             <div class="modal-body">
-                <form action="<?= base_url('tiket/save_close_tiket') ?>" method="POST" enctype="multipart/form-data">
+                <form action="<?= base_url('tiket/save_close_tiket') ?>" method="post" enctype="multipart/form-data">
 
                     <input type="hidden" name="id_tiket" id="closetiket" class="form-control">
                     <br>
