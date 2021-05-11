@@ -56,7 +56,9 @@
                                     <tr>
                                         <td><?= $no++ ?></td>
                                         <td><?= $row->divisi ?></td>
-                                        <td><a href="<?= base_url('divisi/edit_divisi/' . $row->id_divisi) ?>" class="btn btn-success">Edit</a> | <a href="<?= base_url('divisi/delete_divisi/' . $row->id_divisi) ?>" class="btn btn-danger" onclick="return confirm('Yakin Menghapus Data ini ?')">Delete</a></td>
+                                        <td><a href="<?= base_url('divisi/edit_divisi/' . $row->id_divisi) ?>" class="btn btn-success"><i class="fas fa-eye"></i></a>
+                                            <a href="<?= base_url('divisi/delete_divisi/' . $row->id_divisi) ?>" class="btn btn-danger" onclick="return confirm('Yakin Menghapus Data ini ?')"><i class="fas fa-trash"></i></a>
+                                        </td>
                                     </tr>
                                 <?php } ?>
                             </tbody>

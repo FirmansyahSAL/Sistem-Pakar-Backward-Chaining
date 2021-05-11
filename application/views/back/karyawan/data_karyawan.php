@@ -47,8 +47,8 @@
                                             } ?>
                                         </td>
                                         <td>
-                                            <a href="<?= base_url('karyawan/edit_karyawan/' . $row->id_users) ?>"><button type='button' class='btn btn-success'>Edit</button></a>
-                                            <a href="<?= base_url('karyawan/delete_karyawan/' . $row->id_users) ?>"><button type='button' class='btn btn-danger' onclick="return confirm('Yakin Menghapus Data ini ?')">Hapus</button></a>
+                                            <a href="<?= base_url('karyawan/edit_karyawan/' . $row->id_users) ?>"><button type='button' class='btn btn-success'><i class="fas fa-eye"></i></button></a>
+                                            <a href="<?= base_url('karyawan/delete_karyawan/' . $row->id_users) ?>"><button type='button' class='btn btn-danger' onclick="return confirm('Yakin Menghapus Data ini ?')"><i class="fas fa-trash"></i></button></a>
                                         </td>
                                     </tr>
                                 <?php } ?>
