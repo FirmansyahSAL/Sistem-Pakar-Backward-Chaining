@@ -1,10 +1,6 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-        <img src="<?= base_url() ?>assets/back/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">SIS</span>
-    </a>
+
 
     <!-- Sidebar -->
     <div class="sidebar">
@@ -32,74 +28,91 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-header">Data Master</li>
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-id-badge"></i>
-                        <p>Master Karyawan
-                            <i class="fas fa-angle-left right"></i>
 
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="<?= base_url('divisi') ?>" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Data Divisi</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url('jabatan') ?>" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Data Jabatan</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url('karyawan') ?>" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Data Karyawan</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-file"></i>
-                        <p>
-                            Master Tiket
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="<?= base_url('tiket') ?>" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Data Tiket</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-header">Laporan Tiket</li>
-                <li class="nav-item">
-                    <a href="<?= base_url('laporan') ?>" class="nav-link">
-                        <i class="nav-icon fas fa-clipboard"></i>
-                        <p>Laporan</p>
-                    </a>
-                </li>
+                <?php if (is_it()) { ?>
 
-                <li class="nav-header">Profile</li>
-                <li class="nav-item">
-                    <a href="<?= base_url('karyawan/profile/' . $this->session->id_users); ?>" class="nav-link">
-                        <i class="nav-icon fas fa-user"></i>
-                        <p>Profile User</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?= base_url('auth/logout') ?>" class="nav-link">
-                        <i class="nav-icon fas fa-sign-out-alt"></i>
-                        <p>Log out</p>
-                    </a>
-                </li>
+                    <li class="nav-header">Data Master</li>
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-id-badge"></i>
+                            <p>Master Karyawan
+                                <i class="fas fa-angle-left right"></i>
+
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="<?= base_url('divisi') ?>" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Data Divisi</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= base_url('jabatan') ?>" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Data Jabatan</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= base_url('karyawan') ?>" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Data Karyawan</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-file"></i>
+                            <p>
+                                Master Tiket
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="<?= base_url('tiket') ?>" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Data Tiket</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-header">Laporan Tiket</li>
+                    <li class="nav-item">
+                        <a href="<?= base_url('laporan') ?>" class="nav-link">
+                            <i class="nav-icon fas fa-clipboard"></i>
+                            <p>Laporan</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="<?= base_url('auth/logout') ?>" class="nav-link">
+                            <i class="nav-icon fas fa-sign-out-alt"></i>
+                            <p>Log out</p>
+                        </a>
+                    </li>
+
+                <?php } else { ?>
+
+
+                    <li class="nav-header">Profile</li>
+                    <li class="nav-item">
+                        <a href="<?= base_url('karyawan/profile/' . $this->session->id_users); ?>" class="nav-link">
+                            <i class="nav-icon fas fa-user"></i>
+                            <p>Profile User</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?= base_url('auth/logout') ?>" class="nav-link">
+                            <i class="nav-icon fas fa-sign-out-alt"></i>
+                            <p>Log out</p>
+                        </a>
+                    </li>
+
+                <?php } ?>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

@@ -67,7 +67,7 @@ class Auth extends CI_Controller
             if (!$user) {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger"> Email tidak ditemukan </div>');
                 redirect('auth/login', 'refresh');
-            } else if ($user->status == '0') {
+            } else if ($user->status_user == '0') {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger"> User tidak aktif, silahkan hubungi admin</div>');
                 redirect('auth/login', 'refresh');
             } else if (!password_verify($this->input->post('password'), $user->password)) {
@@ -78,7 +78,7 @@ class Auth extends CI_Controller
                     'id_users'    => $user->id_users,
                     'username'    => $user->username,
                     'email'       => $user->email,
-                    'level_user'  => $user->level,
+                    'level_user'  => $user->level_user,
                 );
                 $this->session->set_userdata($session);
                 redirect('dashboard');

@@ -8,6 +8,7 @@ class Dashboard extends CI_Controller
         parent::__construct();
         cek_login();
     }
+
     public function index()
     {
         $this->template->load('back/template', 'back/dashboard');
