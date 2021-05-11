@@ -15,6 +15,8 @@ class Tiket extends CI_Controller
 
         $data['tiket'] = $this->M_tiket->get_tiket();
         $data['no_tiket'] = $this->M_tiket->no_tiket();
+        $data['tiket_user'] = $this->M_tiket->tiket_user();
+
         $this->template->load('back/template', 'back/tiket/tiket', $data);
     }
 

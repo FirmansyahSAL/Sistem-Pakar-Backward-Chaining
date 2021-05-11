@@ -8,6 +8,13 @@ class M_tiket extends CI_Model
         return $this->db->get('tiket')->result();
     }
 
+    function tiket_user()
+    {
+        $this->db->where('tiket.users_id', $this->session->userdata('id_users'));
+        return $this->db->get('tiket')->result();
+    }
+
+
     function get_no_tiket($no_tiket)
     {
         $this->db->join('users', 'tiket.users_id = users.id_users', 'left');

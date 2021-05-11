@@ -98,6 +98,23 @@
                 <?php } else { ?>
 
 
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-file"></i>
+                            <p>
+                                Master Tiket
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="<?= base_url('tiket') ?>" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Data Tiket</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="nav-header">Profile</li>
                     <li class="nav-item">
                         <a href="<?= base_url('karyawan/profile/' . $this->session->id_users); ?>" class="nav-link">
