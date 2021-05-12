@@ -56,7 +56,9 @@
                                     <tr>
                                         <td><?= $no++ ?></td>
                                         <td><?= $row->jabatan ?></td>
-                                        <td><a href="<?= base_url('jabatan/edit_jabatan/' . $row->id_jabatan) ?>" class="btn btn-secondary">Edit</a> | <a href="<?= base_url('jabatan/delete_jabatan/' . $row->id_jabatan) ?>" class="btn btn-danger">Delete</a></td>
+                                        <td><a href="<?= base_url('jabatan/edit_jabatan/' . $row->id_jabatan) ?>" class="btn btn-success"><i class="fas fa-eye"></i></a>
+                                            <a href="<?= base_url('jabatan/delete_jabatan/' . $row->id_jabatan) ?>" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                        </td>
                                     </tr>
                                 <?php } ?>
                             </tbody>

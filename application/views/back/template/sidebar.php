@@ -88,6 +88,15 @@
                         </a>
                     </li>
 
+
+                    <li class="nav-header">Profile</li>
+                    <li class="nav-item">
+                        <a href="<?= base_url('karyawan/profile/' . $this->session->id_users); ?>" class="nav-link">
+                            <i class="nav-icon fas fa-user"></i>
+                            <p>Profile User</p>
+                        </a>
+                    </li>
+
                     <li class="nav-item">
                         <a href="<?= base_url('auth/logout') ?>" class="nav-link">
                             <i class="nav-icon fas fa-sign-out-alt"></i>

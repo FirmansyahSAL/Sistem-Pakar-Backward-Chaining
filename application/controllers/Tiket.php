@@ -65,7 +65,7 @@ class Tiket extends CI_Controller
                     );
 
                     $this->M_tiket->insert($data);
-                    $this->session->set_flashdata('message', '<div class="alert alert-info"> Data Berhasil di simpan</div>');
+                    $this->session->set_flashdata('message', '<div class="alert alert-info alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data Berhasil di simpan</div>');
                     redirect('tiket', 'refresh');
                 }
             } else {

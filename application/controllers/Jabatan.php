@@ -8,6 +8,7 @@ class Jabatan extends CI_Controller
         parent::__construct();
         cek_login();
     }
+
     public function index()
     {
         $data['jabatan'] = $this->M_jabatan->get_jabatan();
@@ -32,7 +33,7 @@ class Jabatan extends CI_Controller
                 'jabatan' => $this->input->post('jabatan'),
             );
             $this->M_jabatan->insert($data);
-            $this->session->set_flashdata('message', '<div class="alert alert-info"> Data Berhasil disimpan </div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-info alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data Berhasil disimpan </div>');
             redirect('jabatan', 'refresh');
         } else {
             $this->index();
@@ -56,7 +57,7 @@ class Jabatan extends CI_Controller
         $delete = $this->M_jabatan->get_id_jabatan($id);
         if ($delete) {
             $this->M_jabatan->delete($id);
-            $this->session->set_flashdata('message', '<div class="alert alert-danger"> Data Berhasil dihapus</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data Berhasil dihapus</div>');
             redirect('jabatan', 'refresh');
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-info"> Data Tidak ada</div>');
@@ -71,7 +72,7 @@ class Jabatan extends CI_Controller
         ];
 
         $this->M_jabatan->update($this->input->post('id_jabatan'), $data);
-        $this->session->set_flashdata('message', '<div class="alert alert-danger"> Data Berhasil disimpan</div>');
+        $this->session->set_flashdata('message', '<div class="alert alert-info alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data Berhasil disimpan</div>');
         redirect('jabatan', 'refresh');
     }
 }

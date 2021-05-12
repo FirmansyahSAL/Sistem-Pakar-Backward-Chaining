@@ -65,8 +65,6 @@
                         <!-- /.col -->
                     </div>
                 </form>
-
-
             </div>
             <!-- /.login-card-body -->
         </div>

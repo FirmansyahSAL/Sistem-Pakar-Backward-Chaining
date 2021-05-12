@@ -151,7 +151,7 @@ class Karyawan extends CI_Controller
             );
 
             $this->M_karyawan->update($this->input->post('id_users'), $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-info"> Data Berhasil diupdate </div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-info alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data Berhasil diupdate </div>');
 
             redirect('karyawan/profile/' . $this->session->id_users);
         } else {
