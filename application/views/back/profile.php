@@ -177,11 +177,11 @@
                 <form action="<?= base_url('karyawan/save_tiket') ?>" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label>NIK</label>
-                        <input type="text" name="username" readonly class="form-control">
+                        <input type="text" name="username" value="<?= $karyawan->nik ?>" readonly class="form-control">
                     </div>
                     <div class="form-group">
                         <label>New password</label>
-                        <input type="text" name="password" class="form-control">
+                        <input type="text" name="password" class="form-control" placeholder="Enter">
 
                     </div>
                     <button type="submit" class="btn btn-primary">Save</button>
@@ -204,7 +204,7 @@
                 <form action="<?= base_url('karyawan/save_tiket') ?>" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label>Nik</label>
-                        <input type="text" name="judul_tiket" readonly class="form-control">
+                        <input type="text" name="nik" value="<?= $karyawan->nik ?>" readonly class="form-control">
                     </div>
                     <div class="form-group">
                         <label>foto</label><br>

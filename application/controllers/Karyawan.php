@@ -33,7 +33,7 @@ class Karyawan extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             $this->index();
         } else {
-            if ($_FILES['gambar_tiket']['error'] <> 4) {
+            if ($_FILES['image_user']['error'] <> 4) {
 
                 $config['upload_path'] = './assets/images/tiket/';
                 $config['allowed_types'] = 'gif|jpg|png|jpeg';
@@ -43,12 +43,12 @@ class Karyawan extends CI_Controller
 
                 $this->load->library('upload', $config);
 
-                if (!$this->upload->do_upload('gambar_tiket')) {
+                if (!$this->upload->do_upload('image_user')) {
                     $error = array('error' => $this->upload->display_errors());
                     $this->session->set_flashdata('message', '<div class="alert alert-danger">' . $error['error'] . '</div>');
                     $this->index();
                 } else {
-                    $gambar_tiket = $this->upload->data();
+                    $image_user = $this->upload->data();
 
                     $data = array(
                         'nik'               => $this->input->post('nik'),
@@ -80,9 +80,9 @@ class Karyawan extends CI_Controller
 
                 );
 
-                $this->M_karyawan->insert($data);
+                $this->M_karyawan->update($this->input->post('id_users'), $data);
                 $this->session->set_flashdata('message', '<div class="alert alert-info"> Data Berhasil di simpan</div>');
-                redirect('karyawan', 'refresh');
+                redirect('profile', 'refresh');
             }
         }
     }

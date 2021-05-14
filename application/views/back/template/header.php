@@ -13,6 +13,7 @@
 
         <li class="nav-item">
             <a class="nav-link">
+                <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                 <b><?= $this->session->username; ?></b>
             </a>
         </li>
