@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="<?= base_url() ?>assets/back/dist/css/adminlte.min.css">
 
-
 <div class="container mt-3">
     <div class="row">
         <div class="col-sm-12">

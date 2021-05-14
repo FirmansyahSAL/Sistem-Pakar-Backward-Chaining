@@ -12,8 +12,7 @@
             </div><!-- /.row -->
             <div class="alert alert-success alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <h5> Selamat Datang
-                    <?= $this->session->username; ?></h5>
+                Hallo,<b><?= $this->session->username; ?></b> Selamat Datang
             </div>
 
         </div><!-- /.container-fluid -->
