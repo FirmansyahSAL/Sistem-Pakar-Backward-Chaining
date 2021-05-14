@@ -16,7 +16,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Data Tiket</h3>
-                            <a href="<?= base_url('tiket/add_tiket') ?>" data-toggle="modal" data-target="#form_tiket" class="btn btn-primary btn-sm float-right">Tiket Baru</a>
+                            <a href="<?= base_url('tiket/add_tiket') ?>" data-toggle="modal" data-target="#form_tiket" class="btn btn-primary btn-sm float-right"><i class="fas fa-plus"></i> Tiket Baru</a>
                         </div>
                         <div class="card-body">
                             <?= $this->session->flashdata('message'); ?>
@@ -291,7 +291,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Data Tiket</h3>
-                            <a href="<?= base_url('tiket/add_tiket') ?>" data-toggle="modal" data-target="#form_tiket" class="btn btn-primary btn-sm float-right">Tiket Baru</a>
+                            <a href="<?= base_url('tiket/add_tiket') ?>" data-toggle="modal" data-target="#form_tiket" class="btn btn-primary btn-sm float-right"><i class="fas fa-plus"></i> Tiket Baru</a>
                         </div>
                         <div class="card-body">
                             <?= $this->session->flashdata('message'); ?>

@@ -17,7 +17,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">Data karyawan</h3>
-                        <a href="<?= base_url('karyawan/add_karyawan') ?>" class="btn btn-primary float-right">Tambah Data</a>
+                        <a href="<?= base_url('karyawan/add_karyawan') ?>" class="btn btn-primary float-right"><i class="fas fa-plus"></i> Tambah Data</a>
                     </div>
 
                     <div class="card-body">
