@@ -171,7 +171,7 @@
                 <h5 class="modal-title"></h5>
                 Form Edit Password <aria-label="Close" button class="close" data-dismiss="modal">
                     <span aria-hidden="true">&times;</span>
-
+ 
             </div>
             <div class="modal-body">
                 <form action="<?= base_url('karyawan/save_tiket') ?>" method="post" enctype="multipart/form-data">
