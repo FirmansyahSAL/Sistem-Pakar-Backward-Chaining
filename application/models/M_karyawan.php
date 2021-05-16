@@ -37,4 +37,11 @@ class M_karyawan extends CI_Model
         $this->db->where('id_users', $id);
         return $this->db->get('users')->row();
     }
+
+    function jumlah_user()
+    {
+        $this->db->select('*');
+        $this->db->from('users');
+        return $this->db->get()->num_rows();
+    }
 }
