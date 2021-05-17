@@ -78,10 +78,8 @@
                                     <div class="col-6">
                                         <label for="">Foto Komplain / keluhan</label>
                                         <img src="<?= base_url('assets/images/tiket/' . $tiket->gambar_tiket); ?>" width="250px">
-                                        <p class="lead">Foto Komplain / keluhan
-                                            asssalamualaikum
-                                            warrahmatulahi
-                                            wabarakatuh
+
+
                                         </p>
                                     </div>
                                 </div>

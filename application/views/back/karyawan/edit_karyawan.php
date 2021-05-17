@@ -49,8 +49,13 @@
                             <div class="input-group mb-3">
                                 <select name="status_user" class="form-control">
                                     <option value="">Status User</option>
-                                    <option value="1">Active</option>
-                                    <option value="2">Non Active</option>
+                                    <?php foreach ($karyawan as $row) { ?>
+                                        <?php if ($row->status_user == '1') {
+                                            echo 'Active';
+                                        } else {
+                                            echo 'Non Active';
+                                        } ?>
+                                    <?php } ?>
                                 </select>
                             </div>
 

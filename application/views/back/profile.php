@@ -112,15 +112,11 @@
                                 <div class="form-group">
                                     <label class="control-label">level user</label>
                                     <div class="input-group mb-3">
-                                        <select name="level_user" class="form-control">
-                                            <option value="">Level User</option>
-                                            <?php if ($row->level_user == '1') {
-                                                echo 'Active';
-                                            } else {
-                                                echo 'Non Active';
-                                            } ?>
-
-                                        </select>
+                                        <input type="text" name="status_user" value="<?php if ($karyawan->status_user == '1') {
+                                                                                            echo 'Active';
+                                                                                        } else {
+                                                                                            echo 'Non Active';
+                                                                                        } ?>" class="form-control">
                                     </div>
                                 </div>
                                 <!-- /.col -->
@@ -131,14 +127,11 @@
                                     <div class="form-group">
                                         <label class="control-label">status user</label>
                                         <div class="input-group mb-3">
-                                            <select name="status_user" class="form-control">
-                                                <option value="">---Pilih status user---</option>
-                                                <?php if ($row->status_user == '1') {
-                                                    echo 'Active';
-                                                } else {
-                                                    echo 'Non Active';
-                                                } ?>
-                                            </select>
+                                            <input type="text" name="status_user" value="<?php if ($karyawan->status_user == '1') {
+                                                                                                echo 'Active';
+                                                                                            } else {
+                                                                                                echo 'Non Active';
+                                                                                            } ?>" class="form-control">
                                             <div class="input-group-append">
                                             </div>
                                         </div>
