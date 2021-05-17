@@ -60,7 +60,7 @@ class Tiket extends CI_Controller
                         'status_tiket'   => 0,
                         'users_id'        => $this->session->userdata('id_users'),
                         'gambar_tiket'   => $this->upload->data('file_name'),
-                        'tgl_daftar'     => date('Y-m-d'),
+                        'tgl_daftar'     => date('Y-m-d H:i:s'),
 
                     );
 
@@ -76,7 +76,7 @@ class Tiket extends CI_Controller
                     'status_tiket'   => 0,
                     'users_id'        => $this->session->userdata('id_users'),
                     //        'gambar_tiket'   => $this->upload->data('file_name'),
-                    'tgl_daftar'     => date('Y-m-d'),
+                    'tgl_daftar'     => date('Y-m-d H:i:s'),
 
                 );
 
