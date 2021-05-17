@@ -112,11 +112,11 @@
                                 <div class="form-group">
                                     <label class="control-label">level user</label>
                                     <div class="input-group mb-3">
-                                        <input type="text" name="level_user" value="<?php if ($karyawan->level_user == '1') {
-                                                                                        echo 'Staff';
-                                                                                    } else {
-                                                                                        echo 'IT';
-                                                                                    } ?>" class="form-control">
+                                        <input type="text" name="level_user" value=" <?php if ($karyawan->level_user == '1') {
+                                                                                            echo 'Staff';
+                                                                                        } else {
+                                                                                            echo 'IT';
+                                                                                        } ?>" class="form-control">
                                     </div>
                                 </div>
                                 <!-- /.col -->
