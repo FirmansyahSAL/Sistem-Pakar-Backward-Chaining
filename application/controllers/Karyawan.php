@@ -24,7 +24,6 @@ class Karyawan extends CI_Controller
     function save_tiket()
     {
         $this->form_validation->set_rules('username', 'Username', 'trim|required');
-        $this->form_validation->set_rules('email', 'Email', 'trim|required');
 
         $this->form_validation->set_message('required', '{field} Harus di isi');
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
@@ -35,10 +34,10 @@ class Karyawan extends CI_Controller
         } else {
             if ($_FILES['image_user']['error'] <> 4) {
 
-                $config['upload_path'] = './assets/images/tiket/';
+                $config['upload_path'] = './assets/images/profile/';
                 $config['allowed_types'] = 'gif|jpg|png|jpeg';
                 $config['max_size'] = '2048';
-                $nama_file = $this->input->post('nik') . date('Ymdhis');
+                $nama_file = $this->input->post('image_user');
                 $config['file_name'] = $nama_file;
 
                 $this->load->library('upload', $config);
@@ -51,41 +50,32 @@ class Karyawan extends CI_Controller
                     $image_user = $this->upload->data();
 
                     $data = array(
-                        'nik'               => $this->input->post('nik'),
-                        'username'          => $this->input->post('username'),
-                        'email'             => $this->input->post('email'),
-                        'jabatan_id'        => $this->input->post('jabatan_id'),
-                        'divisi_id'         => $this->input->post('divisi_id'),
-                        'password'          => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
-                        'status_user'       => 1,
-                        'level_user'        => 1,
+                        'username'    => $this->input->post('username'),
+                        'image_user'  => $this->upload->data('file_name'),
+                        'password'    => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
+                        'created'     => date('Y-m-d H:i:s'),
 
                     );
 
-                    $this->M_karyawan->insert($data);
+                    $this->M_karyawan->update($this->input->post('id_users'), $data);
                     $this->session->set_flashdata('message', '<div class="alert alert-info alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data Berhasil di simpan</div>');
-                    redirect('karyawan', 'refresh');
+                    redirect('karyawan/profile/' . $this->session->id_users);
                 }
             } else {
                 $data = array(
-
-                    'nik'               => $this->input->post('nik'),
-                    'username'          => $this->input->post('username'),
-                    'email'             => $this->input->post('email'),
-                    'jabatan_id'        => $this->input->post('jabatan_id'),
-                    'divisi_id'         => $this->input->post('divisi_id'),
-                    'password'          => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
-                    'status_user'       => 1,
-                    'level_user'        => 1,
+                    'username'    => $this->input->post('username'),
+                    'password'    => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
+                    'created'     => date('Y-m-d H:i:s'),
 
                 );
 
-                $this->M_karyawan->update($this->input->post('id_users'), $data);
+                $this->M_karyawan->insert($data);
                 $this->session->set_flashdata('message', '<div class="alert alert-info"> Data Berhasil di simpan</div>');
-                redirect('profile', 'refresh');
+                redirect('karyawan/profile/' . $this->session->id_users);
             }
         }
     }
+
 
     function add_karyawan()
     {
@@ -155,8 +145,8 @@ class Karyawan extends CI_Controller
                 'nik'          => $this->input->post('nik'),
                 'username'     => $this->input->post('username'),
                 'email'        => $this->input->post('email'),
-                'jabatan_id'     => $this->input->post('jabatan_id'),
-                'divisi_id'     => $this->input->post('divisi_id'),
+                'jabatan_id'   => $this->input->post('jabatan_id'),
+                'divisi_id'    => $this->input->post('divisi_id'),
                 'password'     => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
                 'status_user'  => $this->input->post('status_user'),
                 'level_user'   => $this->input->post('level_user'),
@@ -206,18 +196,20 @@ class Karyawan extends CI_Controller
 
         $this->form_validation->set_rules('username', 'Username', 'trim|required');
 
+
         $this->form_validation->set_message('required', '{field} Harus di isi');
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
 
         if ($this->form_validation->run() == TRUE) {
             $data = array(
-                'nik'          => $this->input->post('nik'),
-                'username'     => $this->input->post('username'),
-                'email'        => $this->input->post('email'),
+                'nik'            => $this->input->post('nik'),
+                'username'       => $this->input->post('username'),
+                'email'          => $this->input->post('email'),
                 'jabatan_id'     => $this->input->post('jabatan_id'),
-                'divisi_id'     => $this->input->post('divisi_id'),
-                'status_user'     => $this->input->post('status_user'),
+                'divisi_id'      => $this->input->post('divisi_id'),
+                'status_user'    => $this->input->post('status_user'),
                 'level_user'     => $this->input->post('level_user'),
+                'password'     => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
             );
 
             $this->M_karyawan->update($this->input->post('id_users'), $data);

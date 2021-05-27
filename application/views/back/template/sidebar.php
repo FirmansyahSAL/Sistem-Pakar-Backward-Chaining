@@ -7,7 +7,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="<?= base_url('assets/back/dist/img/user2-160x160.jpg'); ?>" class="img-circle elevation-2" alt="User Image">
+                <img src="<?= base_url('assets/images/profile/'); ?>" class="img-circle elevation-2" alt="User Image">
 
             </div>
             <div class="info">
@@ -125,6 +125,17 @@
                             </li>
                         </ul>
                     </li>
+
+
+                    <li class="nav-header">Laporan Tiket</li>
+                    <li class="nav-item">
+                        <a href="<?= base_url('laporan') ?>" class="nav-link">
+                            <i class="nav-icon fas fa-clipboard"></i>
+                            <p>Laporan</p>
+                        </a>
+                    </li>
+
+
                     <li class="nav-header">Profile</li>
                     <li class="nav-item">
                         <a href="<?= base_url('karyawan/profile/' . $this->session->id_users); ?>" class="nav-link">

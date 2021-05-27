@@ -167,15 +167,14 @@
 
             </div>
             <div class="modal-body">
-                <form action="<?= base_url('karyawan/update_profile') ?>" method="post" enctype="multipart/form-data">
+                <form action="<?= base_url('karyawan/save_tiket') ?>" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label>NIK</label>
                         <input type="text" name="username" value="<?= $karyawan->nik ?>" readonly class="form-control">
                     </div>
                     <div class="form-group">
-                        <label>New password</label>
-                        <input type="text" name="password" class="form-control" placeholder="Enter">
-
+                        <label>new password</label><br>
+                        <input type="text" name="password" class="form-control">
                     </div>
                     <button type="submit" class="btn btn-primary">Save</button>
                     <button type="reset" class="btn btn-danger">Reset</button>
@@ -197,11 +196,11 @@
                 <form action="<?= base_url('karyawan/save_tiket') ?>" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label>Nik</label>
-                        <input type="text" name="nik" value="<?= $karyawan->nik ?>" readonly class="form-control">
+                        <input type="text" name="username" value="<?= $karyawan->nik ?>" readonly class="form-control">
                     </div>
                     <div class="form-group">
                         <label>foto</label><br>
-                        <input type="file" name="gambar_tiket">
+                        <input type="file" name="image_user">
                     </div>
                     <button type="submit" class="btn btn-primary">Save</button>
                     <button type="reset" class="btn btn-danger">Reset</button>
