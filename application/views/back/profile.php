@@ -22,6 +22,13 @@
                     <form action="<?= base_url('karyawan/update_profile') ?>" method="post">
                         <div class="row">
                             <div class="col-md-6">
+                                <div class="col-6">
+                                    <label for="">Foto Komplain / keluhan</label>
+                                    <img src="<?= base_url('assets/images/profile/1.jpg' . $karyawan->image_user); ?>" width="200px" height="110">
+
+                                    </p>
+                                </div>
+
                                 <div class="form-group">
                                     <label class="control-label">Nik</label>
                                     <div class="input-group mb-3">
@@ -112,11 +119,10 @@
                                 <div class="form-group">
                                     <label class="control-label">level user</label>
                                     <div class="input-group mb-3">
-                                        <input type="text" name="level_user" value=" <?php if ($karyawan->level_user == '1') {
-                                                                                            echo 'Staff';
-                                                                                        } else {
-                                                                                            echo 'IT';
-                                                                                        } ?>" class="form-control">
+                                        <select name="level_user" class="form-control">
+                                            <option value="1" <?= $karyawan->level_user == '1' ? 'selected' : '' ?>>IT</option>
+                                            <option value="2" <?= $karyawan->level_user == '2' ? 'selected' : '' ?>>Staff</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <!-- /.col -->
@@ -127,13 +133,10 @@
                                     <div class="form-group">
                                         <label class="control-label">status user</label>
                                         <div class="input-group mb-3">
-                                            <input type="text" name="status_user" value="<?php if ($karyawan->status_user == '1') {
-                                                                                                echo 'Active';
-                                                                                            } else {
-                                                                                                echo 'Non Active';
-                                                                                            } ?>" class="form-control">
-                                            <div class="input-group-append">
-                                            </div>
+                                            <select name="status_user" class="form-control">
+                                                <option value="1" <?= $karyawan->status_user == '1' ? 'selected' : '' ?>>Active</option>
+                                                <option value="0" <?= $karyawan->status_user == '0' ? 'selected' : '' ?>>Non Active</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>

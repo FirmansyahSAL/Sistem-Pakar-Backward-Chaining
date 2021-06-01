@@ -3,11 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Karyawan extends CI_Controller
 {
-    public function __construct()
-    {
-        parent::__construct();
-        cek_login();
-    }
+
 
 
     public function index()
@@ -37,7 +33,7 @@ class Karyawan extends CI_Controller
                 $config['upload_path'] = './assets/images/profile/';
                 $config['allowed_types'] = 'gif|jpg|png|jpeg';
                 $config['max_size'] = '2048';
-                $nama_file = $this->input->post('image_user');
+                $nama_file = $this->input->post('nik') . date('Ymdhis');;
                 $config['file_name'] = $nama_file;
 
                 $this->load->library('upload', $config);
@@ -47,31 +43,27 @@ class Karyawan extends CI_Controller
                     $this->session->set_flashdata('message', '<div class="alert alert-danger">' . $error['error'] . '</div>');
                     $this->index();
                 } else {
+                    if ($this->input->post('id_users')) {
+                        $data = array(
+                            'status_user' => 1,
+                        );
+
+                        $this->M_karyawan->update($this->input->post('id_users'), $data);
+                    }
                     $image_user = $this->upload->data();
 
                     $data = array(
-                        'username'    => $this->input->post('username'),
-                        'image_user'  => $this->upload->data('file_name'),
-                        'password'    => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
-                        'created'     => date('Y-m-d H:i:s'),
+                        'id_users'          => $this->input->post('id_tiket'),
+                        'tanggapan'         => $this->input->post('tanggapan'),
+                        'gambar_tanggapan'  => $this->upload->data('file_name'),
+                        'waktu_tanggapan'   => date('Y-m-d'),
 
                     );
 
-                    $this->M_karyawan->update($this->input->post('id_users'), $data);
-                    $this->session->set_flashdata('message', '<div class="alert alert-info alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data Berhasil di simpan</div>');
-                    redirect('karyawan/profile/' . $this->session->id_users);
+                    $this->M_tiket->insert_tanggapan($data);
+                    $this->session->set_flashdata('message', '<div class="alert alert-info"> Data Berhasil di simpan</div>');
+                    redirect('tiket', 'refresh');
                 }
-            } else {
-                $data = array(
-                    'username'    => $this->input->post('username'),
-                    'password'    => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
-                    'created'     => date('Y-m-d H:i:s'),
-
-                );
-
-                $this->M_karyawan->insert($data);
-                $this->session->set_flashdata('message', '<div class="alert alert-info"> Data Berhasil di simpan</div>');
-                redirect('karyawan/profile/' . $this->session->id_users);
             }
         }
     }
@@ -97,23 +89,59 @@ class Karyawan extends CI_Controller
 
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
 
-        if ($this->form_validation->run() == TRUE) {
-            $data = array(
-                'nik'               => $this->input->post('nik'),
-                'username'          => $this->input->post('username'),
-                'email'             => $this->input->post('email'),
-                'jabatan_id'        => $this->input->post('jabatan_id'),
-                'divisi_id'         => $this->input->post('divisi_id'),
-                'password'          => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
-                'status_user'       => 1,
-                'level_user'        => 1,
-            );
-
-            $this->M_karyawan->insert($data);
-            $this->session->set_flashdata('message', '<div class="alert alert-info"> Data Berhasil disimpan </div>');
-            redirect('karyawan', 'refresh');
+        if ($this->form_validation->run() == FALSE) {
+            $this->index();
         } else {
-            $this->add_karyawan();
+            if ($_FILES['image_user']['error'] <> 4) {
+
+                $config['upload_path'] = './assets/images/profile/';
+                $config['allowed_types'] = 'gif|jpg|png|jpeg';
+                $config['max_size'] = '2048';
+                $nama_file = $this->input->post('nik') . date('Ymdhis');
+                $config['file_name'] = $nama_file;
+
+                $this->load->library('upload', $config);
+
+                if (!$this->upload->do_upload('image_user')) {
+                    $error = array('error' => $this->upload->display_errors());
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger">' . $error['error'] . '</div>');
+                    $this->index();
+                } else {
+                    $image_user = $this->upload->data();
+                    $data = array(
+                        'nik'               => $this->input->post('nik'),
+                        'username'          => $this->input->post('username'),
+                        'email'             => $this->input->post('email'),
+                        'jabatan_id'        => $this->input->post('jabatan_id'),
+                        'divisi_id'         => $this->input->post('divisi_id'),
+                        'image_user'        => $this->upload->data('file_name'),
+                        'password'          => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
+                        'status_user'       => 1,
+                        'level_user'        => 1,
+                    );
+
+                    $this->M_karyawan->insert($data);
+                    $this->session->set_flashdata('message', '<div class="alert alert-info"> Data Berhasil disimpan </div>');
+                    redirect('karyawan', 'refresh');
+                }
+            } else {
+                $data = array(
+                    'nik'               => $this->input->post('nik'),
+                    'username'          => $this->input->post('username'),
+                    'email'             => $this->input->post('email'),
+                    'jabatan_id'        => $this->input->post('jabatan_id'),
+                    'divisi_id'         => $this->input->post('divisi_id'),
+                    //'image_user'        => $this->upload->data('file_name'),
+                    'password'          => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
+                    'status_user'       => 1,
+                    'level_user'        => 1,
+
+                );
+
+                $this->M_karyawan->insert($data);
+                $this->session->set_flashdata('message', '<div class="alert alert-info"> Data Berhasil di simpan</div>');
+                redirect('karyawan', 'refresh');
+            }
         }
     }
 
@@ -147,9 +175,10 @@ class Karyawan extends CI_Controller
                 'email'        => $this->input->post('email'),
                 'jabatan_id'   => $this->input->post('jabatan_id'),
                 'divisi_id'    => $this->input->post('divisi_id'),
+
                 'password'     => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
-                'status_user'  => $this->input->post('status_user'),
-                'level_user'   => $this->input->post('level_user'),
+                'status_user'  => 1,
+                'level_user'   => 1,
             );
 
             $this->M_karyawan->update($this->input->post('id_users'), $data);

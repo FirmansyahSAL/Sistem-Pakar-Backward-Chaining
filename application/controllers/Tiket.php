@@ -202,8 +202,6 @@ class Tiket extends CI_Controller
         }
     }
 
-
-
     function detail_tiket($no_tiket)
     {
         $data['tiket'] = $this->M_tiket->get_no_tiket($no_tiket);

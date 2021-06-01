@@ -86,6 +86,11 @@
                                     <?php } ?>
                                 </select>
                             </div>
+
+                            <div class="form-group">
+                                <label>Gambar</label><br>
+                                <input type="file" name="image_user" class="form-control">
+                            </div>
                             <button type="submit" class="btn btn-primary btn-sm">Save</button>
                             <button type="reset" class="btn btn-danger btn-sm">Reset</button>
                         </form>

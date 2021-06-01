@@ -48,22 +48,16 @@
 
                             <div class="input-group mb-3">
                                 <select name="status_user" class="form-control">
-                                    <option value="">Status User</option>
-                                    <?php foreach ($karyawan as $row) { ?>
-                                        <?php if ($row->status_user == '1') {
-                                            echo 'Active';
-                                        } else {
-                                            echo 'Non Active';
-                                        } ?>
-                                    <?php } ?>
+
+                                    <option value="1" <?= $users->status_user == '1' ? 'selected' : '' ?>>Active</option>
+                                    <option value="0" <?= $users->status_user == '0' ? 'selected' : '' ?>>Non Active</option>
                                 </select>
                             </div>
 
                             <div class="input-group mb-3">
                                 <select name="level_user" class="form-control">
-                                    <option value="">Level User</option>
-                                    <option value="1">Staff</option>
-                                    <option value="2">IT</option>
+                                    <option value="1" <?= $users->level_user == '1' ? 'selected' : '' ?>>IT</option>
+                                    <option value="2" <?= $users->level_user == '2' ? 'selected' : '' ?>>Staff</option>
                                 </select>
                             </div>
 

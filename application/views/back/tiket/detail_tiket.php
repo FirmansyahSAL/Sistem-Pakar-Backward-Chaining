@@ -79,7 +79,6 @@
                                         <label for="">Foto Komplain / keluhan</label>
                                         <img src="<?= base_url('assets/images/tiket/' . $tiket->gambar_tiket); ?>" width="250px">
 
-
                                         </p>
                                     </div>
                                 </div>
