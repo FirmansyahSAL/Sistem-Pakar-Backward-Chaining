@@ -43,4 +43,10 @@ class M_karyawan extends CI_Model
         $this->db->from('users');
         return $this->db->get()->num_rows();
     }
+
+    public function update_password($tabel, $where, $data)
+    {
+        $this->db->where($where);
+        $this->db->update($tabel, $data);
+    }
 }

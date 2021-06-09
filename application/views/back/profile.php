@@ -1,214 +1,168 @@
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <div class="container-fluid">
-
-        </div><!-- /.container-fluid -->
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-        <div class="container-fluid">
-            <!-- SELECT2 EXAMPLE -->
-            <div class="card card-info">
-                <div class="card-header">
-                    <h3 class="card-title">Profile Karyawan</h3>
-
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                    <?= $this->session->flashdata('message') ?>
-                    <?= validation_errors() ?>
-                    <form action="<?= base_url('karyawan/update_profile') ?>" method="post">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="col-6">
-                                    <label for="">Foto Komplain / keluhan</label>
-                                    <img src="<?= base_url('assets/images/profile/1.jpg' . $karyawan->image_user); ?>" width="200px" height="110">
-
-                                    </p>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="control-label">Nik</label>
-                                    <div class="input-group mb-3">
-                                        <input type="hidden" name="id_users" class="form-control" value="<?= $karyawan->id_users ?>" placeholder="NIK">
-                                        <input type="text" readonly name="nik" class="form-control" value="<?= $karyawan->nik ?>" placeholder="NIK">
-                                        <div class="input-group-append">
-                                            <div class="input-group-text">
-                                                <span class="fa fa-address-card"></span>
-                                            </div> <!-- /controls -->
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /.form-group -->
-                                <div class="form-group">
-                                    <label class="control-label">Nama Karyawan</label>
-                                    <div class="input-group mb-3">
-                                        <input type="text" name="username" value="<?= $karyawan->username ?>" class="form-control" placeholder="Username">
-                                        <div class="input-group-append">
-                                            <div class="input-group-text">
-                                                <span class="fa fa-user"></span>
-                                            </div> <!-- /controls -->
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <!-- /.form-group -->
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="control-label">Email</label>
-                                    <div class="input-group mb-3">
-                                        <input type="text" name="email" value="<?= $karyawan->email ?>" class="form-control" placeholder="Email">
-                                        <div class="input-group-append">
-                                            <div class="input-group-text">
-                                                <span class="fa fa-envelope"></span>
-                                            </div> <!-- /controls -->
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="control-label">Divisi</label>
-                                        <div class="input-group mb-3">
-                                            <select name="divisi_id" class="form-control ">
-                                                <option value="">---Pilih Divisi---</option>
-                                                <?php foreach ($divisi as $key => $row) { ?>
-
-                                                    <option value="<?= $row->id_divisi ?>" <?= $row->id_divisi == $karyawan->divisi_id ? "selected" : null ?>>
-                                                        <?= $row->divisi ?>
-                                                    </option>
-                                                <?php } ?>
-                                            </select>
-                                            <div class="input-group-append">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- /.col -->
-                                </div>
-                            </div>
-                            <!-- /.col -->
-                        </div>
-                        <!-- /.row -->
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="control-label">Jabatan</label>
-                                    <div class="input-group mb-3">
-                                        <select name="jabatan_id" class="form-control">
-                                            <option value="">---Pilih Jabatan---</option>
-                                            <?php foreach ($jabatan as $key => $row) { ?>
-
-                                                <option value="<?= $row->id_jabatan ?>" <?= $row->id_jabatan == $karyawan->jabatan_id ? "selected" : null ?>>
-                                                    <?= $row->jabatan ?>
-                                                </option>
-                                            <?php } ?>
-                                        </select>
-                                        <div class="input-group-append">
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /.form-group -->
-                            </div>
-                            <!-- /.col -->
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="<?= base_url() ?>assets/back/plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="<?= base_url() ?>assets/back/dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
 
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label class="control-label">level user</label>
-                                    <div class="input-group mb-3">
-                                        <select name="level_user" class="form-control">
-                                            <option value="1" <?= $karyawan->level_user == '1' ? 'selected' : '' ?>>IT</option>
-                                            <option value="2" <?= $karyawan->level_user == '2' ? 'selected' : '' ?>>Staff</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- /.col -->
-                            </div>
+  <body class="hold-transition sidebar-mini">
+      <div class="wrapper">
 
-                            <div class=" col-md-3">
-                                <div class="form-group">
-                                    <div class="form-group">
-                                        <label class="control-label">status user</label>
-                                        <div class="input-group mb-3">
-                                            <select name="status_user" class="form-control">
-                                                <option value="1" <?= $karyawan->status_user == '1' ? 'selected' : '' ?>>Active</option>
-                                                <option value="0" <?= $karyawan->status_user == '0' ? 'selected' : '' ?>>Non Active</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /.col -->
-                            </div>
-                            <!-- /.row -->
-                        </div>
-                        <!-- /.card-body -->
-                        <div class="form-actions">
-                            <button type="submit" class="btn btn-primary">Update</button>
-                            <button type="reset" class="btn btn-danger">Reset</button>
-                            <a href="<?= base_url('karyawan/add_tiket') ?>" data-toggle="modal" data-target="#form_tiket" class="btn btn-info">Ganti Password</a>
-                            <a href="<?= base_url('karyawan/add_tiket') ?>" data-toggle="modal" data-target="#form_tiket2" class="btn btn-success">Update Foto</a>
+          <!-- Content Wrapper. Contains page content -->
+          <div class="content-wrapper">
+              <!-- Content Header (Page header) -->
+              <section class="content-header">
+                  <div class="container-fluid">
+                      <div class="row mb-2">
+                          <div class="col-sm-6">
+                              <h1>Profile</h1>
+                          </div>
+                      </div>
+                  </div><!-- /.container-fluid -->
+              </section>
 
-                        </div> <!-- /form-actions -->
-                    </form>
-                </div>
-            </div><!-- /.container-fluid -->
-        </div>
-    </section>
-    <!-- /.content -->
-</div>
+              <!-- Main content -->
+              <section class="content">
+                  <div class="container-fluid">
+                      <div class="row">
+                          <div class="col-md-3">
 
-<div class="modal fade" id="form_tiket">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title"></h5>
-                Form Edit Password <aria-label="Close" button class="close" data-dismiss="modal">
-                    <span aria-hidden="true">&times;</span>
+                              <!-- Profile Image -->
+                              <div class="card card-primary card-outline">
+                                  <div class="card-body box-profile">
+                                      <div class="text-center">
+                                          <img class="profile-user-img img-fluid img-circle" src="<?= base_url() ?>assets/back/dist/img/user4-128x128.jpg" alt="User profile picture">
+                                      </div>
 
-            </div>
-            <div class="modal-body">
-                <form action="<?= base_url('karyawan/save_tiket') ?>" method="post" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label>NIK</label>
-                        <input type="text" name="username" value="<?= $karyawan->nik ?>" readonly class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label>new password</label><br>
-                        <input type="text" name="password" class="form-control">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Save</button>
-                    <button type="reset" class="btn btn-danger">Reset</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="form_tiket2">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title"></h5>
-                Form Ganti Foto <aria-label="Close" button class="close" data-dismiss="modal">
-                    <span aria-hidden="true">&times;</span>
+                                      <h3 class="profile-username text-center"><?= $this->session->username; ?></h3>
 
-            </div>
-            <div class="modal-body">
-                <form action="<?= base_url('karyawan/save_tiket') ?>" method="post" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label>Nik</label>
-                        <input type="text" name="username" value="<?= $karyawan->nik ?>" readonly class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label>foto</label><br>
-                        <input type="file" name="image_user">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Save</button>
-                    <button type="reset" class="btn btn-danger">Reset</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+                                      <p class="text-muted text-center">Software Engineer</p>
+
+                                  </div>
+                                  <!-- /.card-body -->
+                              </div>
+                              <!-- /.card -->
+                          </div>
+                          <!-- /.col -->
+                          <div class="col-md-9">
+                              <div class="card">
+                                  <div class="card-header p-2">
+                                      <ul class="nav nav-pills">
+                                          <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Akun</a></li>
+                                          <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Change Picture</a></li>
+
+                                      </ul>
+                                  </div><!-- /.card-header -->
+                                  <div class="card-body">
+                                      <div class="tab-content">
+                                          <div class="active tab-pane" id="activity">
+                                              <form class="form-horizontal" action="<?= base_url('karyawan/proses_new_password') ?>" method="post">
+                                                  <div class="form-group row">
+                                                      <label for="inputName" class="col-sm-2 col-form-label">Nik</label>
+                                                      <div class="col-sm-10">
+                                                          <input type="hidden" name="id_users" class="form-control" value="<?= $karyawan->id_users ?>" placeholder="NIK">
+                                                          <input type="text" readonly name="nik" class="form-control" value="<?= $karyawan->nik ?>" placeholder="NIK">
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group row">
+                                                      <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                                                      <div class="col-sm-10">
+                                                          <input type="email" name="email" value="<?= $karyawan->email ?>" class="form-control" id="inputEmail" placeholder="Email">
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group row">
+                                                      <label for="inputEmail" class="col-sm-2 col-form-label">Jabatan</label>
+                                                      <div class="col-sm-10">
+                                                          <select name="jabatan_id" class="form-control">
+                                                              <option value="">---Pilih Jabatan---</option>
+                                                              <?php foreach ($jabatan as $key => $row) { ?>
+
+                                                                  <option value="<?= $row->id_jabatan ?>" <?= $row->id_jabatan == $karyawan->jabatan_id ? "selected" : null ?>>
+                                                                      <?= $row->jabatan ?>
+                                                                  </option>
+                                                              <?php } ?>
+                                                          </select>
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group row">
+                                                      <label for="inputEmail" class="col-sm-2 col-form-label">Divisi</label>
+                                                      <div class="col-sm-10">
+                                                          <select name="divisi_id" class="form-control ">
+                                                              <option value="">---Pilih Divisi---</option>
+                                                              <?php foreach ($divisi as $key => $row) { ?>
+
+                                                                  <option value="<?= $row->id_divisi ?>" <?= $row->id_divisi == $karyawan->divisi_id ? "selected" : null ?>>
+                                                                      <?= $row->divisi ?>
+                                                                  </option>
+                                                              <?php } ?>
+                                                          </select>
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group row">
+                                                      <label for="inputEmail" class="col-sm-2 col-form-label">New Password</label>
+                                                      <div class="col-sm-10">
+                                                          <input type="password" name="new_password" class="form-control" placeholder="new password">
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group row">
+                                                      <label for="inputEmail" class="col-sm-2 col-form-label">Confrim Password</label>
+                                                      <div class="col-sm-10">
+                                                          <input type="password" name="confirm_new_password" class="form-control" placeholder="confirm password">
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group row">
+                                                      <div class="offset-sm-2 col-sm-10">
+                                                          <button type="submit" class="btn btn-success">Submit</button>
+                                                      </div>
+                                                  </div>
+                                              </form>
+                                          </div>
+                                          <!-- /.tab-pane -->
+                                          <div class="tab-pane" id="timeline">
+                                              <form class="form-horizontal">
+                                                  <div class="form-group row">
+                                                      <label for="inputEmail2" class="col-sm-2 col-form-label">Foto</label>
+                                                      <div class="col-sm-10">
+                                                          <input type="file" class="form-control">
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group row">
+                                                      <div class="offset-sm-2 col-sm-10">
+                                                          <button type="submit" class="btn btn-success">Submit</button>
+                                                      </div>
+                                                  </div>
+                                              </form>
+                                          </div>
+                                      </div>
+                                      <!-- /.tab-content -->
+                                  </div><!-- /.card-body -->
+                              </div>
+                              <!-- /.nav-tabs-custom -->
+                          </div>
+                          <!-- /.col -->
+                      </div>
+                      <!-- /.row -->
+                  </div><!-- /.container-fluid -->
+              </section>
+              <!-- /.content -->
+          </div>
+          <!-- /.content-wrapper -->
+          <!-- Control Sidebar -->
+          <aside class="control-sidebar control-sidebar-dark">
+              <!-- Control sidebar content goes here -->
+          </aside>
+          <!-- /.control-sidebar -->
+      </div>
+      <!-- ./wrapper -->
+
+      <!-- jQuery -->
+      <script src="<?= base_url() ?>assets/back/plugins/jquery/jquery.min.js"></script>
+      <!-- Bootstrap 4 -->
+      <script src="<?= base_url() ?>assets/back/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <!-- AdminLTE App -->
+      <script src="<?= base_url() ?>assets/back/dist/js/adminlte.min.js"></script>
+      <!-- AdminLTE for demo purposes -->
+      <script src="<?= base_url() ?>assets/back/dist/js/demo.js"></script>
