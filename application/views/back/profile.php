@@ -34,7 +34,9 @@
                               <div class="card card-primary card-outline">
                                   <div class="card-body box-profile">
                                       <div class="text-center">
+
                                           <img class="profile-user-img img-fluid img-circle" src="<?= base_url() ?>assets/back/dist/img/user4-128x128.jpg" alt="User profile picture">
+
                                       </div>
 
                                       <h3 class="profile-username text-center"><?= $this->session->username; ?></h3>
@@ -59,12 +61,14 @@
                                   <div class="card-body">
                                       <div class="tab-content">
                                           <div class="active tab-pane" id="activity">
+
+                                              <?= $this->session->flashdata('message'); ?>
                                               <form class="form-horizontal" action="<?= base_url('karyawan/proses_new_password') ?>" method="post">
                                                   <div class="form-group row">
                                                       <label for="inputName" class="col-sm-2 col-form-label">Nik</label>
                                                       <div class="col-sm-10">
                                                           <input type="hidden" name="id_users" class="form-control" value="<?= $karyawan->id_users ?>" placeholder="NIK">
-                                                          <input type="text" readonly name="nik" class="form-control" value="<?= $karyawan->nik ?>" placeholder="NIK">
+                                                          <input type="text" readonly name="nik" class="form-control" value="<?= $karyawan->username ?>" placeholder="NIK">
                                                       </div>
                                                   </div>
                                                   <div class="form-group row">

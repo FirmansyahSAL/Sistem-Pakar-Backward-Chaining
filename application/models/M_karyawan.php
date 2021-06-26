@@ -49,4 +49,13 @@ class M_karyawan extends CI_Model
         $this->db->where($where);
         $this->db->update($tabel, $data);
     }
+
+    public function get_data_gambar($tabel, $username)
+    {
+        $query = $this->db->select()
+            ->from($tabel)
+            ->where('username', $username)
+            ->get();
+        return $query->result();
+    }
 }
