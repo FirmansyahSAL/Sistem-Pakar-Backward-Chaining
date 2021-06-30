@@ -34,9 +34,7 @@
                               <div class="card card-primary card-outline">
                                   <div class="card-body box-profile">
                                       <div class="text-center">
-
-                                          <img class="profile-user-img img-fluid img-circle" src="<?= base_url() ?>assets/back/dist/img/user4-128x128.jpg" alt="User profile picture">
-
+                                          <img src="<?= base_url('assets/images/profile/' . $karyawan->image_user); ?>" alt="User profile picture">
                                       </div>
 
                                       <h3 class="profile-username text-center"><?= $this->session->username; ?></h3>
@@ -126,19 +124,20 @@
                                           </div>
                                           <!-- /.tab-pane -->
                                           <div class="tab-pane" id="timeline">
-                                              <form class="form-horizontal">
-                                                  <div class="form-group row">
-                                                      <label for="inputEmail2" class="col-sm-2 col-form-label">Foto</label>
-                                                      <div class="col-sm-10">
-                                                          <input type="file" class="form-control">
-                                                      </div>
+                                              <?= form_open_multipart('karyawan/save_tiket'); ?>
+                                              <div class="form-group row">
+                                                  <label for="inputEmail2" class="col-sm-2 col-form-label">Foto</label>
+                                                  <div class="col-sm-10">
+                                                      <input type="file" id="image_user" name="image_user" class="form-control" required="">
                                                   </div>
-                                                  <div class="form-group row">
-                                                      <div class="offset-sm-2 col-sm-10">
-                                                          <button type="submit" class="btn btn-success">Submit</button>
-                                                      </div>
+                                              </div>
+                                              <div class="form-group row">
+                                                  <div class="offset-sm-2 col-sm-10">
+                                                      <button type="submit" class="btn btn-success">Submit</button>
                                                   </div>
-                                              </form>
+                                              </div>
+                                              <?php echo form_close(); ?>
+
                                           </div>
                                       </div>
                                       <!-- /.tab-content -->

@@ -8,13 +8,13 @@ class Karyawan extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_karyawan');
-        $this->load->library('upload');
     }
 
     public function index()
     {
         $data['karyawan'] = $this->M_karyawan->get_karyawan();
-        $data['users'] = $this->M_karyawan->get_data_gambar('users', $this->session->userdata('username'));
+        $data['karyawan'] = $this->M_karyawan->getDataImage();
+
         $this->template->load('back/template', 'back/karyawan/data_karyawan', $data);
     }
 
@@ -22,69 +22,34 @@ class Karyawan extends CI_Controller
     {
     }
 
-    function save_tiket()
+    public function save_tiket()
     {
-        $this->form_validation->set_rules('judul_tiket', 'Judul Tiket', 'trim|required');
-        $this->form_validation->set_rules('deskripsi', 'Deskripsi Tiket', 'trim|required');
+        $upload = $_FILES['image_user']['name'];
+        if ($upload) {
+            $config['upload_path']   = './assets/images/profile/';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg';
+            $config['max_size']      = '2048';
 
-        $this->form_validation->set_message('required', '{field} Harus di isi');
-        $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
+            $this->load->library('upload', $config);
 
+            if ($this->upload->do_upload('image_user')) {
+                $imageName = $this->upload->data('file_name');
+                $data = [
+                    'image_user' => $imageName,
+                    'username'   => $imageName,
+                    'created'    => time()
+                ];
 
-        if ($this->form_validation->run() == FALSE) {
-            $this->index();
-        } else {
-            if ($_FILES['image_user']['error'] <> 4) {
-
-                $config['upload_path'] = './assets/images/profile/';
-                $config['allowed_types'] = 'gif|jpg|png|jpeg';
-                $config['max_size'] = '2048';
-                $nama_file = $this->input->post('no_tiket') . date('Ymdhis');
-                $config['file_name'] = $nama_file;
-
-                $this->load->library('upload', $config);
-
-                if (!$this->upload->do_upload('image_user')) {
-                    $error = array('error' => $this->upload->display_errors());
-                    $this->session->set_flashdata('message', '<div class="alert alert-danger">' . $error['error'] . '</div>');
-                    $this->index();
-                } else {
-                    $image_user = $this->upload->data();
-
-                    $data = array(
-                        'no_tiket'       => $this->input->post('no_tiket'),
-                        'judul_tiket'    => $this->input->post('judul_tiket'),
-                        'deskripsi'      => $this->input->post('deskripsi'),
-                        'status_tiket'   => 0,
-                        'users_id'        => $this->session->userdata('id_users'),
-                        'image_user'   => $this->upload->data('file_name'),
-                        'tgl_daftar'     => date('Y-m-d H:i:s'),
-
-                    );
-
-                    $this->M_tiket->insert($data);
-                    $this->session->set_flashdata('message', '<div class="alert alert-info alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data Berhasil di simpan</div>');
-                    redirect('tiket', 'refresh');
-                }
+                $this->M_karyawan->upload($data);
             } else {
-                $data = array(
-                    'no_tiket'       => $this->input->post('no_tiket'),
-                    'judul_tiket'    => $this->input->post('judul_tiket'),
-                    'deskripsi'      => $this->input->post('deskripsi'),
-                    'status_tiket'   => 0,
-                    'users_id'        => $this->session->userdata('id_users'),
-                    //        'gambar_tiket'   => $this->upload->data('file_name'),
-                    'tgl_daftar'     => date('Y-m-d H:i:s'),
-
-                );
-
-                $this->M_tiket->insert($data);
-                $this->session->set_flashdata('message', '<div class="alert alert-info"> Data Berhasil di simpan</div>');
-                redirect('tiket', 'refresh');
+                $this->session->set_flashdata('message', $this->upload->display_errors());
+                redirect('karyawan/profile/' . $this->session->id_users);
             }
+        } else {
+            $this->session->set_flashdata('message', 'tidak ada');
+            redirect('karyawan/profile/' . $this->session->id_users);
         }
     }
-
 
     function add_karyawan()
     {

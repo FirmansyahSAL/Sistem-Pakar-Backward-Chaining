@@ -3,6 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class M_karyawan extends CI_Model
 {
+
     function get_karyawan()
     {
         return $this->db->get('users')->result();
@@ -50,12 +51,14 @@ class M_karyawan extends CI_Model
         $this->db->update($tabel, $data);
     }
 
-    public function get_data_gambar($tabel, $username)
+    public function upload($data)
     {
-        $query = $this->db->select()
-            ->from($tabel)
-            ->where('username', $username)
-            ->get();
-        return $query->result();
+        $this->db->insert('users', $data);
+        return $this->db->affected_rows();
+    }
+
+    public function getDataImage()
+    {
+        return $this->db->get('users')->result_array();
     }
 }
