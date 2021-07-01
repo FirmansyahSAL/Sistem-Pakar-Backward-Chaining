@@ -7,11 +7,11 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-
-                <img src="<?php echo base_url('assets/images/profile/') ?>" class="profile-user-img img-fluid img-circle">
+                <img src="<?= base_url('assets/images/profile/' . $this->session->image_user); ?>" class="img-circle elevation-2">
             </div>
-            <div class="info">
-                <a href="#" class="d-block"><?= $this->session->username; ?></a>
+            <div class=" info">
+                <a href="#" class="d-block">
+                    <?= $this->session->username; ?></a>
             </div>
         </div>
 
