@@ -16,7 +16,7 @@
                     <div class="card-body">
 
                         <?= validation_errors() ?>
-                        <form action="<?= base_url('karyawan/save_karyawan') ?>" method="post">
+                        <form action="<?= base_url('karyawan/save_karyawan') ?>" method="post" enctype="multipart/form-data">
 
                             <div class="input-group mb-3">
                                 <input type="text" name="nik" class="form-control" placeholder="NIK">
@@ -86,6 +86,16 @@
                                     <?php } ?>
                                 </select>
                             </div>
+
+                            <div class="input-group mb-3">
+                                <input type="file" id="image_user" name="image_user" class="form-control" required="">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fa fa-lock"></span>
+                                    </div> <!-- /controls -->
+                                </div>
+                            </div>
+
 
                             <button type="submit" class="btn btn-primary btn-sm">Save</button>
                             <button type="reset" class="btn btn-danger btn-sm">Reset</button>

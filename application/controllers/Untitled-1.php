@@ -195,3 +195,42 @@
         </div>
     </div>
 </div>
+
+
+
+function save_karyawan()
+{
+$this->form_validation->set_rules('nik', 'Nik', 'trim|is_unique[users.nik]|required');
+$this->form_validation->set_rules('username', 'Username', 'trim|required');
+$this->form_validation->set_rules('email', 'Email', 'valid_email|is_unique[users.email]|required');
+$this->form_validation->set_rules('password', 'Password', 'trim|min_length[5]|required');
+$this->form_validation->set_rules('confirm_password', 'Confirm password', 'trim|matches[password]|required');
+
+$this->form_validation->set_message('required', '{field} Harus di isi');
+$this->form_validation->set_message('valid_email', '{field} anda harus valid');
+
+$this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
+
+if ($this->form_validation->run() == TRUE) {
+
+$data = array(
+'nik' => $this->input->post('nik'),
+'username' => $this->input->post('username'),
+'email' => $this->input->post('email'),
+'jabatan_id' => $this->input->post('jabatan_id'),
+'divisi_id' => $this->input->post('divisi_id'),
+'status_user' => 1,
+'level_user' => 1,
+'password' => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
+
+);
+
+$this->M_karyawan->insert($data);
+$this->session->set_flashdata('message', '<div class="alert alert-info alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data Berhasil diupdate </div>');
+
+redirect('karyawan/profile/' . $this->session->id_users);
+} else {
+
+$this->add_karyawan();
+}
+}
