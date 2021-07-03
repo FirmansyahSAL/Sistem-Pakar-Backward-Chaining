@@ -126,16 +126,6 @@
                         </ul>
                     </li>
 
-
-                    <li class="nav-header">Laporan Tiket</li>
-                    <li class="nav-item">
-                        <a href="<?= base_url('laporan') ?>" class="nav-link">
-                            <i class="nav-icon fas fa-clipboard"></i>
-                            <p>Laporan</p>
-                        </a>
-                    </li>
-
-
                     <li class="nav-header">Profile</li>
                     <li class="nav-item">
                         <a href="<?= base_url('karyawan/profile/' . $this->session->id_users); ?>" class="nav-link">

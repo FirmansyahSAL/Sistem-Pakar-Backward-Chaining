@@ -1,2 +1,7 @@
 username:ca@gmail.com	
 password:22222
+level user : 2
+
+username : smk@gmail.com
+password : 11111
+level user :1
