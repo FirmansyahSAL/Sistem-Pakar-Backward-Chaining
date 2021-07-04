@@ -38,8 +38,7 @@
                                       </div>
 
                                       <h3 class="profile-username text-center"><?= $this->session->username; ?></h3>
-
-                                      <p class="text-muted text-center">Software Engineer</p>
+                                      <a href="#" class="btn btn-primary btn-block"><b>change</b></a>
 
                                   </div>
                                   <!-- /.card-body -->
@@ -63,7 +62,7 @@
                                               <?= $this->session->flashdata('message'); ?>
                                               <form class="form-horizontal" action="<?= base_url('karyawan/proses_new_password') ?>" method="post">
                                                   <div class="form-group row">
-                                                      <label for="inputName" class="col-sm-2 col-form-label">Nik</label>
+                                                      <label for="inputName" class="col-sm-2 col-form-label">Username</label>
                                                       <div class="col-sm-10">
                                                           <input type="hidden" name="id_users" class="form-control" value="<?= $karyawan->id_users ?>" placeholder="NIK">
                                                           <input type="text" readonly name="nik" class="form-control" value="<?= $karyawan->username ?>" placeholder="NIK">
