@@ -137,6 +137,7 @@
                                           <div class="tab-pane" id="timeline1">
                                               <?= $this->session->flashdata('message'); ?>
                                               <form class="form-horizontal" action="<?= base_url('karyawan/proses_new_password') ?>" method="post">
+
                                                   <div class="form-group row">
                                                       <label for="inputEmail" class="col-sm-2 col-form-label">New Password</label>
                                                       <div class="col-sm-10">

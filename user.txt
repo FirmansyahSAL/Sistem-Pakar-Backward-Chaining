@@ -3,10 +3,12 @@ password:22222
 level user : 2 (staff IT)
 
 username : smk@gmail.com
-password : 11111
+old password : 11111
+new password : 22222(belum update)
 level user :1 (user)
 
 
 
 fix laporan.
 fix tampil data tiket halaman staff it .
+fix update data profil
