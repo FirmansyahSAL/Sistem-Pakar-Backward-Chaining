@@ -29,7 +29,7 @@
                             </div> <!-- /controls -->
 
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-info">Print</button>
+                                <button type="submit" name="submit" class="btn btn-info">Print</button>
                             </div>
                         </form>
                     </div>

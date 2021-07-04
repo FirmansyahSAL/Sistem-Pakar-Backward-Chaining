@@ -1,7 +1,11 @@
 username:ca@gmail.com	
 password:22222
-level user : 2
+level user : 2 (staff IT)
 
 username : smk@gmail.com
 password : 11111
-level user :1
+level user :1 (user)
+
+
+
+fix laporan.
