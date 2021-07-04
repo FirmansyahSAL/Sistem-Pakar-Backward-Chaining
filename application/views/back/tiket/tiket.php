@@ -34,7 +34,7 @@
                                 <tbody>
                                     <?php
                                     $no = 1;
-                                    foreach ($tiket_user as $row) { ?>
+                                    foreach ($tiket as $row) { ?>
                                         <tr>
                                             <td><?= $no++ ?></td>
                                             <td><?= $row->no_tiket ?></td>
@@ -196,7 +196,6 @@
         </div>
     </div>
 
-
     <div class="modal fade" id="modalclosetiket">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -276,7 +275,6 @@
     <link rel="stylesheet" href="<?= base_url() ?>assets/back/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/back/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 
-
     <div class="content-wrapper">
         <section class="content-header">
             <div class="container-fluid">
@@ -342,6 +340,7 @@
             </div>
         </section>
     </div>
+
     <div class="modal fade" id="form_tiket">
         <div class="modal-dialog">
             <div class="modal-content">
