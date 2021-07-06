@@ -33,6 +33,8 @@
                 <?= $this->session->flashdata('message'); ?>
                 <?= validation_errors() ?>
                 <form action="<?= base_url('auth/proses_login') ?>" method="post">
+
+                    <label for="email">Email</label>
                     <div class="input-group mb-3">
                         <input type="email" name="email" class="form-control" placeholder="Email">
                         <div class="input-group-append">
@@ -41,6 +43,7 @@
                             </div>
                         </div>
                     </div>
+                    <label for="password">Password</label>
                     <div class="input-group mb-3">
                         <input type="password" name="password" class="form-control" placeholder="Password">
                         <div class="input-group-append">
@@ -55,7 +58,7 @@
                         </div>
                         <!-- /.col -->
                         <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                            <button type="submit" class="btn btn-info btn-block"><span class="fa fa-sign-in-alt"></span>Sign In</button>
                         </div>
                         <!-- /.col -->
                     </div>

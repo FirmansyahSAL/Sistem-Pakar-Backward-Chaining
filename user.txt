@@ -9,6 +9,8 @@ level user :1 (user)
 
 
 
-fix laporan.
-fix tampil data tiket halaman staff it .
-fix update data profil
+fix laporan.(done)
+fix tampil data tiket halaman staff it . (done)
+fix update data profil (done)
+update foto
+update password
