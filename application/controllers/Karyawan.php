@@ -237,19 +237,16 @@ class Karyawan extends CI_Controller
 
     function proses_new_password()
     {
-        $this->form_validation->set_rules('email', 'Email', 'required');
         $this->form_validation->set_rules('new_password', 'New Password', 'required');
         $this->form_validation->set_rules('confirm_new_password', 'Confirm New Password', 'required|matches[new_password]');
 
         if ($this->form_validation->run() == TRUE) {
             if ($this->session->userdata('id_users') === $this->input->post('id_users')) {
                 $username = $this->input->post('username');
-                $email = $this->input->post('email');
                 $new_password = $this->input->post('new_password');
 
                 $data = array(
-                    'email'    => $email,
-                    'password' => $this->hash_password($new_password)
+                    'password' => $this->hash_password($new_password),
                 );
 
                 $where = array(
