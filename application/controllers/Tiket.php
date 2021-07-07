@@ -134,7 +134,7 @@ class Tiket extends CI_Controller
                     );
 
                     $this->M_tiket->insert_tanggapan($data);
-                    $this->session->set_flashdata('message', '<div class="alert alert-info"> Data Berhasil di simpan</div>');
+                    $this->session->set_flashdata('message', '<div class="alert alert-info"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data Berhasil di simpan</div>');
                     redirect('tiket', 'refresh');
                 }
             } else {
@@ -155,7 +155,7 @@ class Tiket extends CI_Controller
                 );
 
                 $this->M_tiket->insert_tanggapan($data);
-                $this->session->set_flashdata('message', '<div class="alert alert-info"> Data Berhasil di simpan</div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-info"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data Berhasil di simpan</div>');
                 redirect('tiket', 'refresh');
             }
         }
@@ -177,7 +177,7 @@ class Tiket extends CI_Controller
             );
 
             $this->M_tiket->update($this->input->post('id_tiket'), $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-info"> Status tiket berhasil di update</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-info"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Status tiket berhasil di update</div>');
             redirect('tiket', 'refresh');
         }
     }
@@ -197,7 +197,7 @@ class Tiket extends CI_Controller
             );
 
             $this->M_tiket->update($this->input->post('id_tiket'), $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-info"> Status tiket berhasil di close</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-info"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Status tiket berhasil di close</div>');
             redirect('tiket', 'refresh');
         }
     }
@@ -219,7 +219,7 @@ class Tiket extends CI_Controller
         $delete = $this->M_tiket->get_id_tiket($id);
         if ($delete) {
             $this->M_tiket->delete($id);
-            $this->session->set_flashdata('message', '<div class="alert alert-info">Data berhasil dihapus</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-info"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data berhasil dihapus</div>');
             redirect('tiket', 'refresh');
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger">Data tidak ada</div>');

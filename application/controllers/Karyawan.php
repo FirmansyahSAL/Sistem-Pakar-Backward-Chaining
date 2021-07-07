@@ -165,7 +165,7 @@ class Karyawan extends CI_Controller
             );
 
             $this->M_karyawan->update($this->input->post('id_users'), $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-info"> Data Berhasil diupdate </div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-info"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data Berhasil diupdate </div>');
 
             redirect('karyawan', 'refresh');
         } else {
@@ -179,7 +179,7 @@ class Karyawan extends CI_Controller
         $delete = $this->M_karyawan->get_id_karyawan($id);
         if ($delete) {
             $this->M_karyawan->delete($id);
-            $this->session->set_flashdata('message', '<div class="alert alert-info"> Data Berhasil dihapus</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-info"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data Berhasil dihapus</div>');
             redirect('karyawan', 'refresh');
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-info"> Data Tidak ada</div>');
@@ -220,7 +220,7 @@ class Karyawan extends CI_Controller
             );
 
             $this->M_karyawan->update($this->input->post('id_users'), $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-info"> Data Berhasil diupdate </div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-info"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Data Berhasil diupdate </div>');
 
             redirect('karyawan/profile/' . $this->session->id_users);
         } else {
