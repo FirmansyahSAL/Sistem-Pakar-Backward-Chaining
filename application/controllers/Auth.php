@@ -39,7 +39,7 @@ class Auth extends CI_Controller
                 'password' => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
                 'status_user' => 1,
                 'level_user' => 1,
-                'image_user'   => $this->upload->data('file_name'),
+                // 'image_user'   => $this->upload->data('file_name'),
             );
             //var_dump($data);
 

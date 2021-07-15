@@ -63,9 +63,17 @@
                         <!-- /.col -->
                     </div>
                 </form>
+                <div class="social-auth-links text-center mb-3">
+
+                </div>
+                <!-- /.social-auth-links -->
+                <p class="mb-0">
+                    <a href="<?= base_url('auth/register') ?>" class="text-center">Register a new membership</a>
+                </p>
             </div>
-            <!-- /.login-card-body -->
         </div>
+        <!-- /.login-card-body -->
+    </div>
     </div>
     <!-- /.login-box -->
 
