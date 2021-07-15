@@ -9,6 +9,15 @@ class M_karyawan extends CI_Model
         return $this->db->get('users')->result();
     }
 
+    public function get_data_gambar($tabel, $username)
+    {
+        $query = $this->db->select()
+            ->from($tabel)
+            ->where('username', $username)
+            ->get();
+        return $query->result();
+    }
+
     function insert($data)
     {
         $this->db->insert('users', $data);
@@ -60,5 +69,11 @@ class M_karyawan extends CI_Model
     public function getDataImage()
     {
         return $this->db->get('users')->result_array();
+    }
+
+    public function update_gambar($tabel, $data, $where)
+    {
+        $this->db->where($where);
+        $this->db->update($tabel, $data);
     }
 }

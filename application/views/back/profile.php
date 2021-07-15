@@ -94,19 +94,20 @@
                                           </div>
                                           <!-- /.tab-pane -->
                                           <div class="tab-pane" id="timeline">
-                                              <?= form_open_multipart('karyawan/save_tiket'); ?>
-                                              <div class="form-group row">
-                                                  <label for="inputEmail2" class="col-sm-2 col-form-label">Foto</label>
-                                                  <div class="col-sm-10">
-                                                      <input type="file" id="image_user" name="image_user" class="form-control" required="">
+                                              <form class="form-horizontal" action="<?= base_url('karyawan/save_tiket') ?>" method="post" enctype="multipart/form-data">
+
+                                                  <div class="form-group row">
+                                                      <label for="inputEmail2" class="col-sm-2 col-form-label">Foto</label>
+                                                      <div class="col-sm-10">
+                                                          <input type="file" name="image_user" class="form-control" required="">
+                                                      </div>
                                                   </div>
-                                              </div>
-                                              <div class="form-group row">
-                                                  <div class="offset-sm-2 col-sm-10">
-                                                      <button type="submit" class="btn btn-success">Submit</button>
+                                                  <div class="form-group row">
+                                                      <div class="offset-sm-2 col-sm-10">
+                                                          <button type="submit" class="btn btn-success">Submit</button>
+                                                      </div>
                                                   </div>
-                                              </div>
-                                              <?php echo form_close(); ?>
+                                              </form>
                                           </div>
                                       </div>
                                       <!-- /.tab-content -->

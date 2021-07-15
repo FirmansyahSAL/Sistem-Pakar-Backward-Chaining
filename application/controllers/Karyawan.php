@@ -13,6 +13,7 @@ class Karyawan extends CI_Controller
     public function index()
     {
         $data['karyawan'] = $this->M_karyawan->get_karyawan();
+        $data['avatar'] = $this->M_karyawan->get_data_gambar('users', $this->session->userdata('username'));
         $this->template->load('back/template', 'back/karyawan/data_karyawan', $data);
     }
 
@@ -22,30 +23,51 @@ class Karyawan extends CI_Controller
 
     public function save_tiket()
     {
-        $upload = $_FILES['image_user']['name'];
-        if ($upload) {
-            $config['upload_path']   = './assets/images/profile/';
-            $config['allowed_types'] = 'gif|jpg|png|jpeg';
-            $config['max_size']      = '2048';
+        $config =  array(
+            'upload_path'     => "./assets/images/profile/",
+            'allowed_types'   => "gif|jpg|png|jpeg",
+            'encrypt_name'    => False, //
+            'max_size'        => "50000",  // ukuran file gambar
+            'max_height'      => "9680",
+            'max_width'       => "9024"
+        );
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
 
-            $this->load->library('upload', $config);
-
-            if ($this->upload->do_upload('image_user')) {
-                $imageName = $this->upload->data('file_name');
-                $data = [
-                    'image_user' => $imageName,
-                    'username'   => $imageName,
-                    'created'    => time()
-                ];
-
-                $this->M_karyawan->upload($data);
-            } else {
-                $this->session->set_flashdata('message', $this->upload->display_errors());
-                redirect('karyawan/profile/' . $this->session->id_users);
-            }
+        if (!$this->upload->do_upload('image_user')) {
+            $this->session->set_flashdata('message', $this->upload->display_errors());
+            $this->load->view('karyawan/profile/' . $this->session->id_users);
         } else {
-            $this->session->set_flashdata('message', 'tidak ada');
-            redirect('karyawan/profile/' . $this->session->id_users);
+            $upload_data = $this->upload->data();
+            $image_user = $upload_data['file_name'];
+
+            //resize img + thumb Img -- Optional
+            $config['image_library']     = 'gd2';
+            $config['source_image']      = $upload_data['full_path'];
+            $config['create_thumb']      = FALSE;
+            $config['maintain_ratio']    = TRUE;
+            $config['width']             = 150;
+            $config['height']            = 150;
+
+            $this->load->library('image_lib', $config);
+            $this->image_lib->initialize($config);
+            if (!$this->image_lib->resize()) {
+                $data['pesan_error'] = $this->image_lib->display_errors();
+                $this->load->view('karyawan/profile/' . $this->session->id_users);
+            }
+
+            $where = array(
+                'username' => $this->session->userdata('username')
+            );
+
+            $data = array(
+                'image_user' => $image_user
+
+            );
+
+            $this->M_karyawan->update_gambar('users', $data, $where);
+            $this->session->set_flashdata('message', 'Gambar Berhasil Di Upload');
+            redirect(base_url('karyawan/profile/' . $this->session->id_users));
         }
     }
 
