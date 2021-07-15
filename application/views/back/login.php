@@ -64,7 +64,6 @@
                     </div>
                 </form>
                 <div class="social-auth-links text-center mb-3">
-
                 </div>
                 <!-- /.social-auth-links -->
                 <p class="mb-0">

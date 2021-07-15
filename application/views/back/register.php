@@ -23,7 +23,7 @@
 <body class="hold-transition register-page">
     <div class="register-box">
         <div class="register-logo">
-            <a href="<?= base_url() ?>assets/back/index2.html"><b>REGISTER</b></a>
+            <a href="#"><b>REGISTER</b></a>
         </div>
 
         <div class="card">
@@ -33,6 +33,14 @@
                 <?= $this->session->flashdata('message'); ?>
                 <?= validation_errors() ?>
                 <form action="<?= base_url('auth/proses_register') ?>" method="post">
+                    <div class="input-group mb-3">
+                        <input type="text" name="nik" class="form-control" placeholder="Nik">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="input-group mb-3">
                         <input type="text" name="username" class="form-control" placeholder="Username">
                         <div class="input-group-append">
@@ -67,12 +75,7 @@
                     </div>
                     <div class="row">
                         <div class="col-8">
-                            <div class="icheck-primary">
-                                <input type="checkbox" id="agreeTerms" name="terms" value="agree">
-                                <label for="agreeTerms">
-                                    I agree to the <a href="#">terms</a>
-                                </label>
-                            </div>
+
                         </div>
                         <!-- /.col -->
                         <div class="col-4">
@@ -81,7 +84,11 @@
                         <!-- /.col -->
                     </div>
                 </form>
-
+                <div class="social-auth-links text-center mb-3">
+                </div>
+                <p class="mb-0">
+                    <a href="<?= base_url('auth/login') ?>" class="text-center">Sudah punya akun? silahkan login</a>
+                </p>
             </div>
             <!-- /.form-box -->
         </div><!-- /.card -->

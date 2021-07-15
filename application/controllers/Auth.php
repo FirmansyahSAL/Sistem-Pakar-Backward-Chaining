@@ -36,6 +36,7 @@ class Auth extends CI_Controller
             $data = array(
                 'username' => $this->input->post('username'),
                 'email' => $this->input->post('email'),
+                'nik' => $this->input->post('nik'),
                 'password' => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
                 'status_user' => 1,
                 'level_user' => 1,
