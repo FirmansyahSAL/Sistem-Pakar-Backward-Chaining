@@ -52,6 +52,8 @@
                                       <ul class="nav nav-pills">
                                           <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Akun</a></li>
                                           <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Change Picture</a></li>
+                                          <li class="nav-item"><a class="nav-link" href="#activity1" data-toggle="tab">Change profile</a></li>
+
                                       </ul>
                                   </div><!-- /.card-header -->
                                   <div class="card-body">
@@ -100,6 +102,59 @@
                                                       <label for="inputEmail2" class="col-sm-2 col-form-label">Foto</label>
                                                       <div class="col-sm-10">
                                                           <input type="file" name="image_user" class="form-control" required="">
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group row">
+                                                      <div class="offset-sm-2 col-sm-10">
+                                                          <button type="submit" class="btn btn-success">Submit</button>
+                                                      </div>
+                                                  </div>
+                                              </form>
+                                          </div>
+
+                                          <div class="tab-pane" id="activity1">
+                                              <?= $this->session->flashdata('message'); ?>
+                                              <form class="form-horizontal" action="<?= base_url('karyawan/update_profile') ?>" method="post">
+                                                  <div class="form-group row">
+                                                      <label for="inputName" class="col-sm-2 col-form-label">Nik</label>
+                                                      <div class="col-sm-10">
+                                                          <input type="hidden" name="id_users" class="form-control" value="<?= $karyawan->id_users ?>" placeholder="NIK">
+                                                          <input type="text" name="nik" class="form-control" value="<?= $karyawan->nik ?>" placeholder="NIK">
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group row">
+                                                      <label for="inputEmail" class="col-sm-2 col-form-label">Karyawan</label>
+                                                      <div class="col-sm-10">
+                                                          <input type="text" name="username" value="<?= $karyawan->username ?>" class="form-control" id="inputusername" placeholder="username">
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group row">
+                                                      <label for="inputdivisi" class="col-sm-2 col-form-label">Divisi</label>
+                                                      <div class="col-sm-10">
+                                                          <select name="divisi_id" class="form-control ">
+                                                              <option value="">---Pilih Divisi---</option>
+                                                              <?php foreach ($divisi as $key => $row) { ?>
+
+                                                                  <option value="<?= $row->id_divisi ?>" <?= $row->id_divisi == $karyawan->divisi_id ? "selected" : null ?>>
+                                                                      <?= $row->divisi ?>
+                                                                  </option>
+                                                              <?php } ?>
+                                                          </select>
+                                                      </div>
+                                                  </div>
+
+                                                  <div class="form-group row">
+                                                      <label for="inputjabatan" class="col-sm-2 col-form-label">Jabatan</label>
+                                                      <div class="col-sm-10">
+                                                          <select name="jabatan_id" class="form-control">
+                                                              <option value="">---Pilih Jabatan---</option>
+                                                              <?php foreach ($jabatan as $key => $row) { ?>
+
+                                                                  <option value="<?= $row->id_jabatan ?>" <?= $row->id_jabatan == $karyawan->jabatan_id ? "selected" : null ?>>
+                                                                      <?= $row->jabatan ?>
+                                                                  </option>
+                                                              <?php } ?>
+                                                          </select>
                                                       </div>
                                                   </div>
                                                   <div class="form-group row">

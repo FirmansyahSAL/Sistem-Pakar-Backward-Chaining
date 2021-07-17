@@ -236,7 +236,6 @@ class Karyawan extends CI_Controller
             $data = array(
                 'nik'          => $this->input->post('nik'),
                 'username'     => $this->input->post('username'),
-                'email'        => $this->input->post('email'),
                 'jabatan_id'   => $this->input->post('jabatan_id'),
                 'divisi_id'    => $this->input->post('divisi_id'),
             );

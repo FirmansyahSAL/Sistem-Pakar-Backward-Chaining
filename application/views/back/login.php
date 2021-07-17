@@ -58,7 +58,7 @@
                         </div>
                         <!-- /.col -->
                         <div class="col-4">
-                            <button type="submit" class="btn btn-info btn-block"><span class="fa fa-sign-in-alt"></span>Sign In</button>
+                            <button type="submit" class="btn btn-primary btn-block"><span class="fa fa-sign-in-alt"></span>Sign In</button>
                         </div>
                         <!-- /.col -->
                     </div>

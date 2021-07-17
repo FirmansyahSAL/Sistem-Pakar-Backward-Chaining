@@ -33,6 +33,7 @@
                 <?= $this->session->flashdata('message'); ?>
                 <?= validation_errors() ?>
                 <form action="<?= base_url('auth/proses_register') ?>" method="post">
+                    <label for="Nik">Nik</label>
                     <div class="input-group mb-3">
                         <input type="text" name="nik" class="form-control" placeholder="Nik">
                         <div class="input-group-append">
@@ -41,6 +42,7 @@
                             </div>
                         </div>
                     </div>
+                    <label for="Username">Username</label>
                     <div class="input-group mb-3">
                         <input type="text" name="username" class="form-control" placeholder="Username">
                         <div class="input-group-append">
@@ -49,6 +51,8 @@
                             </div>
                         </div>
                     </div>
+
+                    <label for="email">Email</label>
                     <div class="input-group mb-3">
                         <input type="text" name="email" value="<?= set_value('email') ?>" class="form-control" placeholder="Email">
                         <div class="input-group-append">
@@ -57,6 +61,7 @@
                             </div>
                         </div>
                     </div>
+                    <label for="Password">Password</label>
                     <div class="input-group mb-3">
                         <input type="password" name="password" class="form-control" placeholder="Password">
                         <div class="input-group-append">
@@ -65,6 +70,7 @@
                             </div>
                         </div>
                     </div>
+                    <label for="Confirm password">Confirm password</label>
                     <div class="input-group mb-3">
                         <input type="password" name="confirm_password" class="form-control" placeholder="Retype password">
                         <div class="input-group-append">
