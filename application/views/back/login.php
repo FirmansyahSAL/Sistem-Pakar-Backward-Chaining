@@ -28,7 +28,7 @@
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
-                <p class="login-box-msg">Sign in to start your session</p>
+                <p class="login-box-msg">Silahkan Login</p>
 
                 <?= $this->session->flashdata('message'); ?>
                 <?= validation_errors() ?>
