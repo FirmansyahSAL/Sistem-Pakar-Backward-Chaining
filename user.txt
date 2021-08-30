@@ -1,4 +1,4 @@
-username:ca@gmail.com	
+username:staff@gmail.com	
 password:22222
 level user : 2 (staff IT)
 
@@ -7,6 +7,8 @@ old password : 11111
 new password : 22222(belum update)
 level user :1 (user)
 
+joko@gmail.com
+11111
 
 
 fix laporan.(done)

@@ -16,7 +16,7 @@
                 <th>Keluhan</th>
                 <th>Waktu Daftar</th>
                 <th>Waktu Selesai</th>
-                <th>Status</th>
+
             </tr>
 
             <?php
@@ -29,21 +29,8 @@
                     <td><?= $row->judul_tiket ?></td>
                     <td><?= $row->tgl_daftar ?></td>
                     <td><?= $row->waktu_tanggapan ?></td>
-                    <td>
-                        <?php
-                        if ($row->status_tiket == '0') {
-                            echo 'Waiting....';
-                        } else if ($row->status_tiket == '1') {
-                            echo 'Response....';
-                        } else if ($row->status_tiket == '2') {
-                            echo 'Process....';
-                        } else {
-                            echo 'Solved';
-                        }
-                        ?>
-                    </td>
-                </tr>
-            <?php } ?>
+
+                <?php } ?>
         </table>
     </div>
 </div>

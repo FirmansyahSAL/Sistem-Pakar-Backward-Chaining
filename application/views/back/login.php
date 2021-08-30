@@ -21,6 +21,7 @@
 </head>
 
 <body class="hold-transition login-page">
+
     <div class="login-box">
         <div class="login-logo">
             <a href="../../index2.html"><b>PANEL ADMIN</b></a>
@@ -28,7 +29,7 @@
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
-                <p class="login-box-msg">Silahkan Login</p>
+                <p class="login-box-msg">Silahkan Masukkan username dan Password</p>
 
                 <?= $this->session->flashdata('message'); ?>
                 <?= validation_errors() ?>

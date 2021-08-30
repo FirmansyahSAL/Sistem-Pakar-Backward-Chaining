@@ -41,13 +41,13 @@
                                             <td><?= $row->judul_tiket ?></td>
                                             <td>
                                                 <?php if ($row->status_tiket == '0') {
-                                                    echo '<span class="badge badge-warning"> Waiting...</span>';
+                                                    echo '<span class="badge badge-warning"> Menunggu...</span>';
                                                 } else if ($row->status_tiket == '1') {
                                                     echo '<span class="badge badge-info"> Response...</span>';
                                                 } else if ($row->status_tiket == '2') {
                                                     echo '<span class="badge badge-success"> Process...</span>';
                                                 } else {
-                                                    echo '<span class="badge badge-danger"> solved...</span>';
+                                                    echo '<span class="badge badge-danger"> Selesai...</span>';
                                                 }
                                                 ?>
                                             </td>

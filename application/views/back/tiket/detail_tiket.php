@@ -36,13 +36,13 @@
                                 <div class="col-sm-4 invoice-col">
                                     To <br>
                                     <b>Status Tiket</b> : <?php if ($tiket->status_tiket == 0) {
-                                                                echo '<span class="badge badge-warning"> Waiting...</span>';
+                                                                echo '<span class="badge badge-warning"> Menunggu...</span>';
                                                             } else if ($tiket->status_tiket == '1') {
                                                                 echo '<span class="badge badge-info"> Response...</span>';
                                                             } else if ($tiket->status_tiket == '2') {
                                                                 echo '<span class="badge badge-success"> Process...</span>';
                                                             } else {
-                                                                echo '<span class="badge badge-danger"> solved...</span>';
+                                                                echo '<span class="badge badge-danger"> Selesai...</span>';
                                                             } ?>
                                     <br>
                                     <br>
@@ -50,13 +50,11 @@
                                     <?= $tiket->no_tiket ?>
                                     <br>
                                     <b> Selesai :</b>
-
                                     <?php
-
                                     if ($tiket->status_tiket == '3') {
                                         echo $tiket->waktu_tanggapan;
                                     } else {
-                                        echo "---";
+                                        echo "- -";
                                     }
                                     ?>
                                 </div>
@@ -73,20 +71,28 @@
                                     <label for="">Tanggapan Dept IT</label>
                                     <textarea rows="6" readonly class="form-control"> <?= $tiket->tanggapan ?> </textarea>
                                 </div>
-
                                 <div class="row">
                                     <div class="col-6">
-                                        <label for="">Foto Komplain / keluhan</label>
+                                        <label for="">Foto Keluhan</label>
                                         <img src="<?= base_url('assets/images/tiket/' . $tiket->gambar_tiket); ?>" width="250px">
 
                                         </p>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="">Foto tanggapan </label>
+                                        <img src="<?= base_url('assets/images/tanggapan/' . $tiket->gambar_tanggapan); ?>" width="250px">
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
     </div>
+    </section>
+</div>
 </div>
