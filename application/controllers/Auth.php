@@ -12,7 +12,13 @@ class Auth extends CI_Controller
         $this->load->view('back/login');
     }
 
-
+    function depan()
+    {
+        $data = array(
+            'title' => 'Halaman Home'
+        );
+        $this->template->load('back/template1', 'back/depan', $data);
+    }
     function register()
     {
         $this->load->view('back/register');
