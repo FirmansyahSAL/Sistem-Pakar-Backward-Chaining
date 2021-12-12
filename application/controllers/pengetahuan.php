@@ -33,8 +33,8 @@ class Pengetahuan extends CI_Controller
 
     function detail()
     {
-        $id = $this->uri->segment(3);
-        $data['detail'] = $this->M_pengetahuan->getPengetahuanById($id);
+        $id = $this->input->get('kd_penyakit');
+        $data['detail'] = $this->M_pengetahuan->getPengetahuanByIdPenyakit($id);
         $this->template->load('back/template', 'back/pengetahuan/detail_pengetahuan', $data);
     }
 
@@ -78,5 +78,12 @@ class Pengetahuan extends CI_Controller
             $data['baris'] = $this->M_pengetahuan->getDPengetahuanById($id)->row_array();
             $this->template->load('back/template', 'back/pengetahuan/edit_pengetahuan', $data);
         }
+    }
+
+    function hapusPengetahuan()
+    {
+        $id = $this->uri->segment(3);
+        $this->M_pengetahuan->delete($id);
+        redirect("pengetahuan");
     }
 }
