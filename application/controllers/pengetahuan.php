@@ -5,15 +5,17 @@ class Pengetahuan extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('M_Master');
+        $this->load->model('M_gejala');
+        $this->load->model('M_penyakit');
+        $this->load->model('M_pengetahuan');
     }
     //    ======================== INDEX =======================
 
     function index()
     {
         $data = array(
-            'data_pengetahuan' => $this->M_Master->getAllGejala(),
-            'data_penyakit' => $this->M_Master->getAllPenyakit()
+            'data_pengetahuan' => $this->M_gejala->getAll(),
+            'data_penyakit' => $this->M_penyakit->getAllPenyakit()
         );
         $this->template->load('back/template', 'back/pengetahuan/data_pengetahuan', $data);
     }
@@ -22,9 +24,9 @@ class Pengetahuan extends CI_Controller
     function add()
     {
         $data = array(
-            'kd_gejala' => $this->M_Master->getKodeGejala(),
-            'data_penyakit' => $this->M_Master->getAllPenyakit(),
-            'data_gejala' => $this->M_Master->getAllGejala()
+            'kd_gejala' => $this->M_gejala->getKodeGejala(),
+            'data_penyakit' => $this->M_penyakit->getAllPenyakit(),
+            'data_gejala' => $this->M_gejala->getAll()
         );
         $this->template->load('back/template', 'back/pengetahuan/form_pengetahuan', $data);
     }
@@ -32,7 +34,7 @@ class Pengetahuan extends CI_Controller
     function detail()
     {
         $id = $this->uri->segment(3);
-        $data['detail'] = $this->M_Master->getPengetahuanById($id);
+        $data['detail'] = $this->M_pengetahuan->getPengetahuanById($id);
         $this->template->load('back/template', 'back/pengetahuan/detail_pengetahuan', $data);
     }
 
@@ -41,12 +43,12 @@ class Pengetahuan extends CI_Controller
     function tambahPengetahuan()
     {
         $data = array(
-            'kd_pengetahuan' => $this->M_Master->getKodePengetahuan(),
+            'kd_pengetahuan' => $this->M_pengetahuan->getKodePengetahuan(),
             'kd_penyakit' => $this->input->post('kd_penyakit'),
             'kd_gejala' => $this->input->post('kd_gejala'),
             'pertanyaan' => $this->input->post('pertanyaan')
         );
-        $this->M_Master->insertPengetahuan($data);
+        $this->M_pengetahuan->insertPengetahuan($data);
         redirect("pengetahuan");
     }
 
@@ -65,15 +67,15 @@ class Pengetahuan extends CI_Controller
                 'kd_gejala' => $gejala,
                 'pertanyaan' => $pertanyaan
             );
-            $this->M_Master->updatePengetahuan($data, $id);
+            $this->M_pengetahuan->updatePengetahuan($data, $id);
             redirect('pengetahuan');
         } else {
             $id = $this->uri->segment(3);
             $data = array(
-                'data_penyakit' => $this->M_Master->getAllPenyakit(),
-                'data_gejala' => $this->M_Master->getAllGejala()
+                'data_penyakit' => $this->M_penyakit->getAllPenyakit(),
+                'data_gejala' => $this->M_gejala->getAll()
             );
-            $data['baris'] = $this->M_Master->getDPengetahuanById($id)->row_array();
+            $data['baris'] = $this->M_pengetahuan->getDPengetahuanById($id)->row_array();
             $this->template->load('back/template', 'back/pengetahuan/edit_pengetahuan', $data);
         }
     }

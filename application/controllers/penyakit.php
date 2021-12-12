@@ -5,13 +5,13 @@ class Penyakit extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('M_Master');
+        $this->load->model('M_penyakit');
         cek_login();
     }
 
     function index()
     {
-        $data = array('data_penyakit' => $this->M_Master->getAllPenyakit());
+        $data = array('data_penyakit' => $this->M_penyakit->getAllPenyakit());
 
         $this->template->load('back/template', 'back/penyakit/data_penyakit', $data);
     }
@@ -19,8 +19,8 @@ class Penyakit extends CI_Controller
     function add()
     {
         $data = array(
-            'kd_penyakit' => $this->M_Master->getKodePenyakit(),
-            'data_penyakit' => $this->M_Master->getAllPenyakit()
+            'kd_penyakit' => $this->M_penyakit->getKodePenyakit(),
+            'data_penyakit' => $this->M_penyakit->getAllPenyakit()
         );
         $this->template->load('back/template', 'back/penyakit/form_penyakit', $data);
     }
@@ -30,12 +30,12 @@ class Penyakit extends CI_Controller
     function tambahPenyakit()
     {
         $data = array(
-            'kd_penyakit' => $this->M_Master->getKodePenyakit(),
+            'kd_penyakit' => $this->M_penyakit->getKodePenyakit(),
             'nama_penyakit' => $this->input->post('nama_penyakit'),
             'penyebab' => $this->input->post('penyebab'),
             'solusi' => $this->input->post('solusi')
         );
-        $this->M_Master->insertPenyakit($data);
+        $this->M_penyakit->insertPenyakit($data);
         redirect("penyakit");
     }
 
@@ -54,11 +54,11 @@ class Penyakit extends CI_Controller
                 'penyebab' => $penyebab,
                 'solusi' => $solusi
             );
-            $this->M_Master->updatePenyakit($data, $id);
+            $this->M_penyakit->updatePenyakit($data, $id);
             redirect('penyakit');
         } else {
             $id = $this->uri->segment(3);
-            $data['baris'] = $this->M_Master->getPenyakitById($id)->row_array();
+            $data['baris'] = $this->M_penyakit->getPenyakitById($id)->row_array();
             $this->template->load('back/template', 'back/penyakit/edit_penyakit', $data);
         }
     }
@@ -66,7 +66,7 @@ class Penyakit extends CI_Controller
     function hapusPenyakit()
     {
         $id = $this->uri->segment(3);
-        $this->M_Master->deletePenyakit($id);
+        $this->M_penyakit->deletePenyakit($id);
         redirect("penyakit");
     }
 }

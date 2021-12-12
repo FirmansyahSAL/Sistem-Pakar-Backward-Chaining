@@ -43,24 +43,6 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="<?= base_url('divisi') ?>" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Data Divisi</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="<?= base_url('jabatan') ?>" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Data Jabatan</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="<?= base_url('karyawan') ?>" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Data Karyawan</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
                                 <a href="<?= base_url('penyakit') ?>" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Data Penyakit</p>
@@ -81,24 +63,6 @@
                         </ul>
                     </li>
 
-
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-file"></i>
-                            <p>
-                                Master Tiket
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="<?= base_url('tiket') ?>" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Data Tiket</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
                     <li class="nav-header">Laporan Tiket</li>
                     <li class="nav-item">
                         <a href="<?= base_url('laporan') ?>" class="nav-link">
