@@ -33,6 +33,7 @@ class Konsultasi extends CI_Controller
 
     function tambahhasil()
     {
+        $this->M_diagnosa->clear_data();
         $this->form_validation->set_rules('kd_penyakit[]', 'kd_penyakit', 'required|trim|xss_clean');
         $this->form_validation->set_rules('kd_gejala[]', 'kd_gejala', 'required|trim|xss_clean');
         $this->form_validation->set_rules('poin_gejala[]', 'poin_gejala', 'required|trim|xss_clean');
@@ -41,14 +42,22 @@ class Konsultasi extends CI_Controller
             echo validation_errors(); // tampilkan apabila ada error
         } else {
 
-            $nm = $this->input->post('kd_penyakit');
+            $nm = $this->input->post('poin_gejala');
             $result = array();
+            
             foreach ($nm as $key => $val) {
-                $result[] = array(
-                    "kd_penyakit"  => $_POST['kd_penyakit'][$key],
-                    "kd_gejala"  => $_POST['kd_gejala'][$key],
-                    "poin_gejala"  => $_POST['poin_gejala'][$key]
-                );
+                if ($val != 0) {
+                    $result[] = array(
+                        "id" => "DEFAULT",
+                        "kd_penyakit"  => $_POST['kd_penyakit'][$key],
+                        "kd_gejala"  => $_POST['kd_gejala'][$key],
+                        "poin_gejala"  => $_POST['poin_gejala'][$key]
+                    );
+                }
+            }
+
+            if (count($result) == 0) {
+                redirect('konsultasi/hasil');
             }
 
             $test = $this->M_diagnosa->addMany($result); // fungsi  untuk menyimpan multi array ke database

@@ -22,4 +22,9 @@ class M_diagnosa extends CI_Model
     {
         return $this->db->query("select g.poin_gejala from diagnosa as h, gejala as g where h.kd_gejala=g.kd_gejala and h.poin_gejala='0'")->result();
     }
+
+    function clear_data()
+    {
+        return $this->db->empty_table('diagnosa');
+    }
 }
