@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2021 at 11:36 AM
+-- Generation Time: Dec 12, 2021 at 11:48 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 5.6.40
 
@@ -103,6 +103,22 @@ INSERT INTO `gejala` (`kd_gejala`, `nama_gejala`, `poin_gejala`) VALUES
 ('G005', 'PC kadang nyala kadang tidak', 10),
 ('G006', 'Power supply berfungsi tetapi motherboard tidak berfungsi', 10),
 ('G007', 'komputer mati saat di nyalakan beberapa saat', 10);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `googleapi`
+--
+
+CREATE TABLE `googleapi` (
+  `id` int(11) NOT NULL,
+  `access_token` char(255) NOT NULL,
+  `refresh_token` char(255) NOT NULL,
+  `scope` char(255) NOT NULL,
+  `token_type` char(255) NOT NULL,
+  `created` int(11) NOT NULL,
+  `expires_in` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -294,6 +310,12 @@ ALTER TABLE `gejala`
   ADD PRIMARY KEY (`kd_gejala`);
 
 --
+-- Indexes for table `googleapi`
+--
+ALTER TABLE `googleapi`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `jabatan`
 --
 ALTER TABLE `jabatan`
@@ -351,6 +373,12 @@ ALTER TABLE `detail_tiket`
 --
 ALTER TABLE `divisi`
   MODIFY `id_divisi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT for table `googleapi`
+--
+ALTER TABLE `googleapi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `jabatan`
