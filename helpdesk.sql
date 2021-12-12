@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2021 at 11:08 PM
+-- Generation Time: Dec 12, 2021 at 11:36 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 5.6.40
 
@@ -82,6 +82,31 @@ INSERT INTO `divisi` (`id_divisi`, `divisi`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `gejala`
+--
+
+CREATE TABLE `gejala` (
+  `kd_gejala` varchar(10) NOT NULL,
+  `nama_gejala` text NOT NULL,
+  `poin_gejala` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `gejala`
+--
+
+INSERT INTO `gejala` (`kd_gejala`, `nama_gejala`, `poin_gejala`) VALUES
+('G001', 'CPU dan monitor mati', 10),
+('G002', 'CPU hidup , Monitor Mati ,Tidak ada beep', 10),
+('G003', 'Kipas Power Supply tidak berputar', 10),
+('G004', 'Kipas Power Suplly berisik', 10),
+('G005', 'PC kadang nyala kadang tidak', 10),
+('G006', 'Power supply berfungsi tetapi motherboard tidak berfungsi', 10),
+('G007', 'komputer mati saat di nyalakan beberapa saat', 10);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `jabatan`
 --
 
@@ -98,6 +123,53 @@ INSERT INTO `jabatan` (`id_jabatan`, `jabatan`) VALUES
 (1, 'Manager'),
 (2, 'IT Staff'),
 (29, 'QA');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pengetahuan`
+--
+
+CREATE TABLE `pengetahuan` (
+  `kd_pengetahuan` varchar(10) NOT NULL,
+  `kd_penyakit` varchar(10) NOT NULL,
+  `kd_gejala` varchar(10) NOT NULL,
+  `pertanyaan` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pengetahuan`
+--
+
+INSERT INTO `pengetahuan` (`kd_pengetahuan`, `kd_penyakit`, `kd_gejala`, `pertanyaan`) VALUES
+('PG001', 'P002', 'G002', 'Apakah mengalami Apakah mengalami liverpool ? ?'),
+('PG002', 'P001', 'G001', 'Apakah mengalami liverpool ?'),
+('PG003', 'P001', 'G002', 'Apakah mengalami letih dan lesu ?'),
+('PG004', 'P001', 'G003', 'Apakah mengalami Kehilangan selera makan ?'),
+('PG005', 'P004', 'G001', 'Apakah mengalami CPU dan monitor mati ?');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `penyakit`
+--
+
+CREATE TABLE `penyakit` (
+  `kd_penyakit` varchar(10) NOT NULL,
+  `nama_penyakit` varchar(50) NOT NULL,
+  `penyebab` text NOT NULL,
+  `solusi` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `penyakit`
+--
+
+INSERT INTO `penyakit` (`kd_penyakit`, `nama_penyakit`, `penyebab`, `solusi`) VALUES
+('P001', 'influenza', 'Menghirup udara yang sudah tercemar virus dari orang lain yang terinfeksi (misalnya melalui batuk atau bersin), atau dari menyentuh sesuatu yang sudah disentuh orang yang terinfeksi', 'Minum obat pereda nyeri NSAID seperti paracetamol dan ibuprofen, hingga obat batuk pilek, atau dekongestan. Menghirup uap hangat dapat melegakan hidung yang tersumbat dan membantu mengencerkan sekret hidung (ingus). Mandi air hangat, Menghirup uap hangat, Berkumur dengan air garam hangat, Perbanyak cairan dalam tubuh, Istirahat yang cukup, Konsumsi obat penghilang rasa sakit.'),
+('P002', 'Bronkitis', 'Disebabkan oleh infeksi paru-paru yang pada banyak kasus penyebabnya adalah virus. Iritasi dan peradangan menyebabkan bronkus menghasilkan lendir lebih banyak. Bronkus merupakan saluran udara dalam sistem pernapasan yang bertugas membawa udara dari dan ke paru-paru.', 'Istirahat yang cukup, Minum air putih yang banyak, Makan buah nanas dan minum teh jahe, Minum campuran madu dan lemon, Menghirup uap hangat, Berkumur dengan air garam, Makan sup ayam hangat.'),
+('P003', 'Sinusitis', 'Disebabkan oleh pembengkakan dinding dalam hidung akibat virus atau reaksi alergi yang masuk dari saluran pernapasan atas. Virus tersebut memicu sinus untuk menghasilkan lendir lebih banyak, sehingga terjadi penumpukan dan penyumbatan pada saluran hidung', 'Menghirup uap, Membersihkan saluran hidung, Kompres air hangat, Tidur dengan kepala diangkat, Meminum obat dekongestan tablet, Memakai semprotan dekongestan'),
+('P004', 'power supply', 'daya terlalu tinggi', 'ganti dengan daya yang sesuai');
 
 -- --------------------------------------------------------
 
@@ -127,6 +199,46 @@ INSERT INTO `tiket` (`id_tiket`, `no_tiket`, `tgl_daftar`, `judul_tiket`, `deskr
 (137, '2708210003', '2021-08-26 18:48:37', 'kerusakan pada bluetoth', 'mungkin lem biru', '270821000320210827014836.jpg', 55, 3),
 (138, '2708210004', '2021-08-27 02:23:44', 'kabel hdmi putus', 'minta di ganti dengan kabel baru', '270821000420210827092343.jpg', 47, 3),
 (139, '2708210005', '2021-08-27 02:26:51', 'monitor tidak berfungsi', 'kemungkinan ada masalah di cable', '270821000520210827092651.jpg', 55, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tmp_hasil`
+--
+
+CREATE TABLE `tmp_hasil` (
+  `id` int(10) NOT NULL,
+  `kd_penyakit` varchar(10) NOT NULL,
+  `kd_gejala` varchar(10) NOT NULL,
+  `poin_gejala` double NOT NULL,
+  `poin_user` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tmp_hasil`
+--
+
+INSERT INTO `tmp_hasil` (`id`, `kd_penyakit`, `kd_gejala`, `poin_gejala`, `poin_user`) VALUES
+(15, 'P004', 'G001', 10, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tmp_relasi`
+--
+
+CREATE TABLE `tmp_relasi` (
+  `id` int(11) NOT NULL,
+  `kd_penyakit` varchar(10) NOT NULL,
+  `kd_gejala` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tmp_relasi`
+--
+
+INSERT INTO `tmp_relasi` (`id`, `kd_penyakit`, `kd_gejala`) VALUES
+(398, 'P004', 'G001');
 
 -- --------------------------------------------------------
 
@@ -176,10 +288,28 @@ ALTER TABLE `divisi`
   ADD PRIMARY KEY (`id_divisi`);
 
 --
+-- Indexes for table `gejala`
+--
+ALTER TABLE `gejala`
+  ADD PRIMARY KEY (`kd_gejala`);
+
+--
 -- Indexes for table `jabatan`
 --
 ALTER TABLE `jabatan`
   ADD PRIMARY KEY (`id_jabatan`);
+
+--
+-- Indexes for table `pengetahuan`
+--
+ALTER TABLE `pengetahuan`
+  ADD PRIMARY KEY (`kd_pengetahuan`);
+
+--
+-- Indexes for table `penyakit`
+--
+ALTER TABLE `penyakit`
+  ADD PRIMARY KEY (`kd_penyakit`);
 
 --
 -- Indexes for table `tiket`
@@ -187,6 +317,18 @@ ALTER TABLE `jabatan`
 ALTER TABLE `tiket`
   ADD PRIMARY KEY (`id_tiket`),
   ADD KEY `user_id` (`users_id`);
+
+--
+-- Indexes for table `tmp_hasil`
+--
+ALTER TABLE `tmp_hasil`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tmp_relasi`
+--
+ALTER TABLE `tmp_relasi`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -221,6 +363,18 @@ ALTER TABLE `jabatan`
 --
 ALTER TABLE `tiket`
   MODIFY `id_tiket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
+
+--
+-- AUTO_INCREMENT for table `tmp_hasil`
+--
+ALTER TABLE `tmp_hasil`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `tmp_relasi`
+--
+ALTER TABLE `tmp_relasi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=399;
 
 --
 -- AUTO_INCREMENT for table `users`
