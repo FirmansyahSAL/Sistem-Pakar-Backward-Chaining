@@ -4,7 +4,7 @@
 <body>
     <!-- section intro -->
 
-    <section id="hero" class="d-flex align-items-center">
+    <section class="align-items-center">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
