@@ -51,7 +51,7 @@ class Konsultasi extends CI_Controller
                 );
             }
 
-            $test = $this->M_diagnosa->add($result); // fungsi  untuk menyimpan multi array ke database
+            $test = $this->M_diagnosa->addMany($result); // fungsi  untuk menyimpan multi array ke database
 
             if ($test) {
                 echo "data sukses di input";
@@ -71,6 +71,6 @@ class Konsultasi extends CI_Controller
             'data_pg' => $this->M_diagnosa->getPG(),
             'data_gj' => $this->M_gejala->getAll()
         );
-        $this->template->load('back/front', 'back/hasil', $data);
+        $this->template->load('back/front', 'back/konsultasi/hasil', $data);
     }
 }
