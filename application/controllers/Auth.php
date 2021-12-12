@@ -17,7 +17,7 @@ class Auth extends CI_Controller
         $data = array(
             'title' => 'Halaman Home'
         );
-        $this->template->load('back/template1', 'back/depan', $data);
+        $this->template->load('back/front', 'back/depan', $data);
     }
     function register()
     {

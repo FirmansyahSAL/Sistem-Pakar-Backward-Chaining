@@ -36,7 +36,7 @@
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-id-badge"></i>
-                            <p>Master Karyawan
+                            <p>Master Pakar
                                 <i class="fas fa-angle-left right"></i>
 
                             </p>
@@ -58,6 +58,24 @@
                                 <a href="<?= base_url('karyawan') ?>" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Data Karyawan</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= base_url('penyakit') ?>" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Data Penyakit</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= base_url('gejala') ?>" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Data Gejala</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= base_url('pengetahuan') ?>" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Data Pengetahuan</p>
                                 </a>
                             </li>
                         </ul>

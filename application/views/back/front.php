@@ -10,22 +10,22 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/template/img/favicon.png" rel="icon">
-    <link href="assets/template/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href=<?php echo base_url("assets/template/img/favicon.png") ?> rel="icon">
+    <link href=<?php echo base_url("assets/template/img/apple-touch-icon.png") ?> rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link href="assets/template/vendor/aos/aos.css" rel="stylesheet">
-    <link href="assets/template/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/template/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/template/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="assets/template/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="assets/template/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href=<?php echo base_url("assets/template/vendor/aos/aos.css") ?> rel="stylesheet">
+    <link href=<?php echo base_url("assets/template/vendor/bootstrap/css/bootstrap.min.css") ?> rel="stylesheet">
+    <link href=<?php echo base_url("assets/template/vendor/bootstrap-icons/bootstrap-icons.css") ?> rel="stylesheet">
+    <link href=<?php echo base_url("assets/template/vendor/boxicons/css/boxicons.min.css") ?> rel="stylesheet">
+    <link href=<?php echo base_url("assets/template/vendor/glightbox/css/glightbox.min.css") ?> rel="stylesheet">
+    <link href=<?php echo base_url("assets/template/vendor/swiper/swiper-bundle.min.css") ?> rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="assets/template/css/style.css" rel="stylesheet">
+    <link href=<?php echo base_url("assets/template/css/style.css") ?> rel="stylesheet">
 
     <!-- =======================================================
   * Template Name: Techie - v4.6.0
@@ -40,7 +40,7 @@
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top ">
         <div class="container d-flex align-items-center justify-content-between">
-            <h1 class="logo"><a href="index.html">Expert <br>System</a></h1>
+            <h1 class="logo"><a href="#">Expert <br>System</a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -64,54 +64,7 @@
     <!-- ======= Footer ======= -->
     <footer id="footer">
 
-        <div class="footer-top">
-            <div class="container">
-                <div class="row">
 
-                    <div class="col-lg-3 col-md-6 footer-contact">
-                        <h3>Techie</h3>
-                        <p>
-                            A108 Adam Street <br>
-                            New York, NY 535022<br>
-                            United States <br><br>
-                            <strong>Phone:</strong> +1 5589 55488 55<br>
-                            <strong>Email:</strong> info@example.com<br>
-                        </p>
-                    </div>
-
-                    <div class="col-lg-2 col-md-6 footer-links">
-                        <h4>Useful Links</h4>
-                        <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Data Penyakit</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Data Gejala</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Basis Aturan</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 footer-links">
-                        <h4>Our Services</h4>
-                        <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 footer-newsletter">
-                        <h4>Join Our Newsletter</h4>
-                        <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-                        <form action="" method="post">
-                            <input type="email" name="email"><input type="submit" value="Subscribe">
-                        </form>
-                    </div>
-
-                </div>
-            </div>
-        </div>
 
         <div class="container">
 
@@ -144,16 +97,16 @@
     <div id="preloader"></div>
 
     <!-- Vendor JS Files -->
-    <script src="assets/template/vendor/aos/aos.js"></script>
-    <script src="assets/template/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/template/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/template/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="assets/template/vendor/php-email-form/validate.js"></script>
-    <script src="assets/template/vendor/purecounter/purecounter.js"></script>
-    <script src="assets/template/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="<?php echo base_url('assets/template/vendor/aos/aos.js') ?>"></script>
+    <script src="<?php echo base_url('assets/template/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/template/vendor/glightbox/js/glightbox.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/template/vendor/isotope-layout/isotope.pkgd.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/template/vendor/php-email-form/validate.js') ?>"></script>
+    <script src="<?php echo base_url('assets/template/vendor/purecounter/purecounter.js') ?>"></script>
+    <script src="<?php echo base_url('assets/template/vendor/swiper/swiper-bundle.min.js') ?>"></script>
 
     <!-- Template Main JS File -->
-    <script src="assets/template/js/main.js"></script>
+    <script src="<?php echo base_url('assets/template/js/main.js') ?>"></script>
 
 </body>
 

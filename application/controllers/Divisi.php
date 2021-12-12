@@ -13,6 +13,7 @@ class Divisi extends CI_Controller
     {
         $data['divisi'] = $this->M_divisi->get_divisi();
 
+
         $this->template->load('back/template', 'back/divisi/data_divisi', $data);
     }
 
