@@ -1,6 +1,6 @@
 <?php
 
-class penyakit extends CI_Controller
+class Penyakit extends CI_Controller
 {
     function __construct()
     {

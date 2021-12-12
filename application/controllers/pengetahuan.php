@@ -1,6 +1,6 @@
 <?php
 
-class pengetahuan extends CI_Controller
+class Pengetahuan extends CI_Controller
 {
     function __construct()
     {

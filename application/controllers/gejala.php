@@ -1,6 +1,6 @@
 <?php
 
-class gejala extends CI_Controller
+class Gejala extends CI_Controller
 {
     function __construct()
     {
