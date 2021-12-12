@@ -5,13 +5,13 @@
 
     <!-- end header -->
     <!-- section intro -->
-    <section id="hero" class="d-flex align-items-center">
+    <section id="content" class="d-flex align-items-center">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card card-info">
                         <div class="card-header">
-                            <h3 class="card-title">Pertanyaan <?php echo count(json_decode(json_encode($pertanyaan))) ?></h3>
+                            <h3 class="card-title">Pertanyaan</h3>
                         </div>
                         <div class="card-body">
                             <div class="col-md-9">
