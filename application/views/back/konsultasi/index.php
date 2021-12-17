@@ -10,25 +10,28 @@
                         </div>
                         <br>
                         <div class="card-body">
-                            <div class="col-md-9">
+                            <div class="col-md-12">
                                 <div class="form-group">
                                     <form action="<?php echo site_url("konsultasi/pertanyaan") ?>" method="get">
-                                        <select name="kd_penyakit" class="form-control" required>
-                                            <option value="">--Pilih Penyakit--</option>
-                                            <?php
-                                            foreach ($data_penyakit as $k) {
-                                                echo "
-                                                <option value='$k->kd_penyakit'>$k->kd_penyakit - $k->nama_penyakit- base_url('assets/images/perangkat/'.$k->img_gejala)</option>";
-                                            }
-                                            ?>
-                                        </select>
-                                        <br>
-                                        <div class="col-md-8">
-                                            <div class="form-group">
-                                                <div class="col-lg-10">
-                                                    <button class="btn btn-primary" type="submit">Submit</button>
-
+                                        <div class="container pt-0">
+                                            <div class="row align-items-end">
+                                                <div class="col-sm">
+                                                    <select id="kd_penyakit" name="kd_penyakit" class="form-control" required onchange="onChangeSelect()">
+                                                        <option value="">--Pilih Penyakit--</option>
+                                                        <?php
+                                                        foreach ($data_penyakit as $k) {
+                                                            echo "
+                                                            <option value='$k->kd_penyakit'>$k->kd_penyakit - $k->nama_penyakit</option>";
+                                                        }
+                                                        ?>
+                                                    </select>
                                                 </div>
+                                                <div class="col-sm">
+                                                    <img src="" alt="" id="img_penyakit">
+                                                </div>
+                                            </div>
+                                            <div class="form-group py-4">
+                                                <button class="btn btn-primary" type="submit">Submit</button>
                                             </div>
                                         </div>
                                     </form>
@@ -41,10 +44,21 @@
         </div>
 
 
-    </section><!-- End Hero -->
+    </section>
 
-    <!-- javascript
-    ================================================== -->
+    <script>
+        function onChangeSelect() {
+            const penyakits = <?php echo json_encode($data_penyakit) ?>;
+            const selectVal = document.getElementById("kd_penyakit").value;
+            var imgSource = null;
+            for (let i = 0; i < penyakits.length; i++) {
+                if (penyakits[i].kd_penyakit === selectVal) {
+                    imgSource = penyakits[i].img_gejala;
+                }
+            }
+            document.getElementById("img_penyakit").src = `<?php echo base_url('assets/images/perangkat/') ?>${imgSource}`;
+        }
+    </script>
 
 </body>
 

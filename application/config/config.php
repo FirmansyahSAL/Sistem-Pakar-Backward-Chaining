@@ -1,6 +1,10 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 date_default_timezone_set('Asia/Jakarta');
+require_once(APPPATH . '../vendor/autoload.php');
+
+$dotenv = Dotenv\Dotenv::create(APPPATH);
+$dotenv->load();
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
@@ -23,7 +27,7 @@ date_default_timezone_set('Asia/Jakarta');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/SIhelpdesk/';
+$config['base_url'] = getenv("BASE_URL");
 
 /*
 |--------------------------------------------------------------------------
