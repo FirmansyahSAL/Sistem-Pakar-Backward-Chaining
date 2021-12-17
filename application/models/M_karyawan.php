@@ -53,6 +53,12 @@ class M_karyawan extends CI_Model
         $this->db->from('users');
         return $this->db->get()->num_rows();
     }
+    function jumlah_gejala()
+    {
+        $this->db->select('*');
+        $this->db->from('gejala');
+        return $this->db->get()->num_rows();
+    }
 
     public function update_password($tabel, $where, $data)
     {

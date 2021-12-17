@@ -27,6 +27,7 @@ class Konsultasi extends CI_Controller
         $data = array(
             'title' => 'Halaman Pertanyaan',
             "pertanyaan" => $this->M_pengetahuan->getPertanyaan($this->input->get('kd_penyakit')),
+
         );
         $this->template->load('back/front', 'back/konsultasi/pertanyaan', $data);
     }
@@ -44,7 +45,7 @@ class Konsultasi extends CI_Controller
 
             $nm = $this->input->post('poin_gejala');
             $result = array();
-            
+
             foreach ($nm as $key => $val) {
                 if ($val != 0) {
                     $result[] = array(

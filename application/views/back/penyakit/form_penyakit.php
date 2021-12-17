@@ -34,8 +34,13 @@
                                 <label>Solusi</label>
                                 <textarea class="form-control" name="solusi" type="text" rows="3" placeholder="Enter ..."></textarea>
                             </div>
+                            <div class="form-group">
+                                <input type="file" name="img_gejala" class="form-control" required="">
+                                <div class="input-group-append">
+                                </div>
+                            </div>
 
-                            <button type="submit" class="btn btn-primary btn-sm">Save</button>
+                            <button type="submit" name="submit" class="btn btn-primary btn-sm">Save</button>
                             <button type="reset" class="btn btn-danger btn-sm">Reset</button>
                         </form>
                     </div>

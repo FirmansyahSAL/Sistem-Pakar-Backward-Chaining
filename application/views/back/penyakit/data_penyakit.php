@@ -30,6 +30,7 @@
                                     <th>Nama Penyakit</th>
                                     <th>Penyebab</th>
                                     <th>Solusi</th>
+                                    <th>Gambar</th>
                                     <th>action</th>
                                 </tr>
                             </thead>
@@ -45,6 +46,12 @@
                                             <td><?php echo $row->nama_penyakit; ?></td>
                                             <td><?php echo $row->penyebab; ?></td>
                                             <td><?php echo $row->solusi; ?></td>
+                                            <td>
+
+                                                <img src="<?= base_url('assets/images/perangkat/' . $row->img_gejala); ?>" width=" 50px">
+
+                                            </td>
+
                                             <td>
                                                 <a class="btn btn-success" href="<?php echo site_url('penyakit/edit/' . $row->kd_penyakit); ?>"><i class="fas fa-eye"></i></a>
                                                 <a class="btn btn-danger" href="<?php echo site_url('penyakit/hapusPenyakit/' . $row->kd_penyakit); ?>" onclick="return confirm('Anda yakin?')"><i class="fas fa-trash"></i></a>

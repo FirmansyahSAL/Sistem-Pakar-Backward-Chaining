@@ -26,7 +26,7 @@
                                         <?php
                                         foreach ($data_ps as $row) {
                                         ?>
-                                            <p>Kemungkinan Anda mengidap penyakit <b><?php echo $row->nama_penyakit; ?></b> </p>
+                                            <p>Kemungkinan Kerusakan Perangkat anda adalah :<b><?php echo $row->nama_penyakit; ?></b> </p>
                                         <?php
                                         }
                                         ?>

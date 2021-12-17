@@ -33,10 +33,32 @@ class Penyakit extends CI_Controller
             'kd_penyakit' => $this->M_penyakit->getKodePenyakit(),
             'nama_penyakit' => $this->input->post('nama_penyakit'),
             'penyebab' => $this->input->post('penyebab'),
-            'solusi' => $this->input->post('solusi')
+            'solusi' => $this->input->post('solusi'),
         );
+        if (!empty($_FILES['img_gejala']['name'])) {
+            $img_gejala = $this->upload();
+            $data['img_gejala'] = $img_gejala;
+        }
         $this->M_penyakit->insertPenyakit($data);
-        redirect("penyakit");
+        redirect('penyakit');
+    }
+    function upload()
+    {
+        $image_name = time() . '-' . $_FILES["img_gejala"]['name'];
+
+        $config['upload_path']         = 'assets/images/perangkat/';
+        $config['allowed_types']     = 'gif|jpg|png';
+        $config['max_size']         = '';
+        $config['max_widht']         = '';
+        $config['max_height']          = '';
+        $config['file_name']         = $image_name;
+
+        $this->load->library('upload', $config);
+        if (!$this->upload->do_upload('img_gejala')) {
+            $this->session->set_flashdata('msg', $this->upload->display_errors('', ''));
+            redirect('penyakit');
+        }
+        return $this->upload->data('file_name');
     }
 
     //    ======================== EDIT =======================

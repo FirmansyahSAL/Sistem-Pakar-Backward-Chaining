@@ -13,6 +13,24 @@ class M_Master extends CI_Model
     {
         return $this->db->query("select * from gejala")->result();
     }
+    function jumlah_gejala()
+    {
+        $this->db->select('*');
+        $this->db->from('gejala');
+        return $this->db->get()->num_rows();
+    }
+    function jumlah_penyakit()
+    {
+        $this->db->select('*');
+        $this->db->from('penyakit');
+        return $this->db->get()->num_rows();
+    }
+    function jumlah_pengetahuan()
+    {
+        $this->db->select('*');
+        $this->db->from('pengetahuan');
+        return $this->db->get()->num_rows();
+    }
 
     //  GET DATA BY ID
     function getPenyakitById($id)

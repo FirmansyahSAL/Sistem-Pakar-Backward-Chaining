@@ -129,35 +129,6 @@
                                                       </div>
                                                   </div>
                                                   <div class="form-group row">
-                                                      <label for="inputdivisi" class="col-sm-2 col-form-label">Divisi</label>
-                                                      <div class="col-sm-10">
-                                                          <select name="divisi_id" class="form-control ">
-                                                              <option value="">---Pilih Divisi---</option>
-                                                              <?php foreach ($divisi as $key => $row) { ?>
-
-                                                                  <option value="<?= $row->id_divisi ?>" <?= $row->id_divisi == $karyawan->divisi_id ? "selected" : null ?>>
-                                                                      <?= $row->divisi ?>
-                                                                  </option>
-                                                              <?php } ?>
-                                                          </select>
-                                                      </div>
-                                                  </div>
-
-                                                  <div class="form-group row">
-                                                      <label for="inputjabatan" class="col-sm-2 col-form-label">Jabatan</label>
-                                                      <div class="col-sm-10">
-                                                          <select name="jabatan_id" class="form-control">
-                                                              <option value="">---Pilih Jabatan---</option>
-                                                              <?php foreach ($jabatan as $key => $row) { ?>
-
-                                                                  <option value="<?= $row->id_jabatan ?>" <?= $row->id_jabatan == $karyawan->jabatan_id ? "selected" : null ?>>
-                                                                      <?= $row->jabatan ?>
-                                                                  </option>
-                                                              <?php } ?>
-                                                          </select>
-                                                      </div>
-                                                  </div>
-                                                  <div class="form-group row">
                                                       <div class="offset-sm-2 col-sm-10">
                                                           <button type="submit" class="btn btn-success">Submit</button>
                                                       </div>

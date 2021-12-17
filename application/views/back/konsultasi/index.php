@@ -17,7 +17,8 @@
                                             <option value="">--Pilih Penyakit--</option>
                                             <?php
                                             foreach ($data_penyakit as $k) {
-                                                echo "<option value='$k->kd_penyakit'>$k->kd_penyakit - $k->nama_penyakit</option>";
+                                                echo "
+                                                <option value='$k->kd_penyakit'>$k->kd_penyakit - $k->nama_penyakit- base_url('assets/images/perangkat/'.$k->img_gejala)</option>";
                                             }
                                             ?>
                                         </select>
