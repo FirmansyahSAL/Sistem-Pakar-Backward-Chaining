@@ -1,6 +1,9 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
+// require_once(APPPATH . '../vendor/autoload.php');
 
+// $dotenv = Dotenv\Dotenv::createImmutable(APPPATH);
+// $dotenv->load();
 /*
 | -------------------------------------------------------------------
 | DATABASE CONNECTIVITY SETTINGS
@@ -75,10 +78,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => getenv("DB_HOSTNAME"),
-	'username' => getenv("DB_USERNAME"),
-	'password' => getenv("DB_PASSWORD"),
-	'database' => getenv("DB_NAME"),
+	'hostname' => $_ENV['DB_HOSTNAME'],
+	'username' => $_ENV['DB_USERNAME'],
+	'password' => $_ENV['DB_PASSWORD'],
+	'database' => $_ENV['DB_NAME'],
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

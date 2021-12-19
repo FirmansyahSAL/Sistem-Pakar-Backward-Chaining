@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 date_default_timezone_set('Asia/Jakarta');
 require_once(APPPATH . '../vendor/autoload.php');
 
-$dotenv = Dotenv\Dotenv::create(APPPATH);
+$dotenv = Dotenv\Dotenv::createImmutable(APPPATH);
 $dotenv->load();
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +27,7 @@ $dotenv->load();
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = getenv("BASE_URL");
+$config['base_url'] = $_ENV['BASE_URL'];
 
 /*
 |--------------------------------------------------------------------------
