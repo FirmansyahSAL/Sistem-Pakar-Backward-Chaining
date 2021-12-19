@@ -27,6 +27,8 @@
     <!-- Template Main CSS File -->
     <link href=<?php echo base_url("assets/template/css/style.css") ?> rel="stylesheet">
 
+    <link href="<?php echo base_url('assets/template/css/bootstrap-responsive.css') ?>" rel="stylesheet" />
+    <link href="<?php echo base_url('assets/template/vendor/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
     <!-- =======================================================
   * Template Name: Techie - v4.6.0
   * Template URL: https://bootstrapmade.com/techie-free-skin-bootstrap-3/
@@ -38,7 +40,7 @@
 <body>
 
     <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top ">
+    <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center justify-content-between">
             <h1 class="logo"><a href="#">Expert <br>System</a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->

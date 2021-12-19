@@ -1,11 +1,23 @@
-<link href="<?php echo base_url('assets/template/css/bootstrap-responsive.css') ?>" rel="stylesheet" />
-<link href="<?php echo base_url('assets/template/vendor/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">Konsultasi</h1>
 
-<body>
-    <!-- section intro -->
+                </div><!-- /.col -->
 
-    <section id="hero" class="d-flex align-items-center">
-        <div class="container">
+            </div><!-- /.row -->
+
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card card-info">
@@ -16,14 +28,7 @@
                             <div class="col-md-9">
                                 <div class="form-group">
                                     <?php
-                                    if (empty($data_ps)) {
-                                        echo "Tidak ada gejala yang Anda alami, analisa hasil tidak ditemukan"
-
-                                    ?>
-                                    <?php } else {
-                                    ?>
-
-                                        <?php
+                                    if (empty($data_ps)) { echo "Tidak ada gejala yang Anda alami, analisa hasil tidak ditemukan"; } else {
                                         foreach ($data_ps as $row) {
                                         ?>
                                             <p>Kemungkinan Kerusakan Perangkat anda adalah :<b><?php echo $row->nama_penyakit; ?></b> </p>
@@ -80,8 +85,8 @@
                                                 </table>
                                             <?php
                                         } ?>
-                                            <br><br><a href="<?php echo site_url('konsultasi_public') ?>" class="btn btn-light btn-large">
-                                                <i class="fa fa-list"></i> Konsultasi Kembali</a>
+                                            <br><br>
+                                            <a href="<?php echo site_url('konsultasi') ?>" class="btn btn-light btn-large">Konsultasi Kembali</a>
                                 </div>
                             </div>
                         </div>
@@ -90,48 +95,5 @@
             </div>
         </div>
     </section>
-
-    <!-- javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="<?php echo base_url('assets/js/jquery.js') ?>"></script>
-    <script src="<?php echo base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/js/jquery.easing.1.3.js') ?>"></script>
-    <script src="<?php echo base_url('assets/js/bootstrap.js') ?>"></script>
-    <script src="<?php echo base_url('assets/js/modernizr.custom.js') ?>"></script>
-    <script src="<?php echo base_url('assets/js/toucheffects.js') ?>"></script>
-    <script src="<?php echo base_url('assets/js/google-code-prettify/prettify.js') ?>"></script>
-    <script src="<?php echo base_url('assets/js/jquery.prettyPhoto.js') ?>"></script>
-    <script src="<?php echo base_url('assets/js/portfolio/jquery.quicksand.js') ?>"></script>
-    <script src="<?php echo base_url('assets/js/portfolio/setting.js') ?>"></script>
-    <script src="<?php echo base_url('assets/js/animate.js') ?>"></script>
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="<?php echo base_url('assets/vendor/metisMenu/metisMenu.min.js'); ?>"></script>
-    <!-- Template Custom JavaScript File -->
-    <script src="<?php echo base_url('assets/js/custom.js') ?>"></script>
-    <!-- DataTables JavaScript -->
-    <script src="<?php echo base_url('assets/vendor/datatables/js/jquery.dataTables.min.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/vendor/datatables-plugins/dataTables.bootstrap.min.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/vendor/datatables-responsive/dataTables.responsive.js'); ?>"></script>
-    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
-    <script>
-        $(document).ready(function() {
-            $('#dataTables-example').DataTable({
-                responsive: true
-            });
-        });
-    </script>
-    <script>
-        $(function() {
-            $("#showPass").click(function() { // #showPass -> id Checkbox
-                if ($("[name=password]").attr('type') == 'password') {
-                    $("[name=password]").attr('type', 'text');
-                } else {
-                    $("[name=password]").attr('type', 'password');
-                }
-            });
-        });
-    </script>
-</body>
-
-</html>
+    <!-- /.content -->
+</div>
