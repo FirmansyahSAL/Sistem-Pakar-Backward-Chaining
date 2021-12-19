@@ -1,5 +1,5 @@
 <?php
-class Konsultasi extends CI_Controller
+class Konsultasi_public extends CI_Controller
 {
     function __construct()
     {
@@ -9,20 +9,17 @@ class Konsultasi extends CI_Controller
         $this->load->model('M_penyakit');
         $this->load->model('M_pengetahuan');
         $this->load->model('M_konsultasi');
-        cek_login();
     }
 
     function index()
     {
-        $history = $this->M_konsultasi->history($this->session->id_users);
         $data = array(
             'title' => 'Halaman Home',
             'data_penyakit' => $this->M_penyakit->getPenyakit(),
-            'history' => $history,
         );
         $this->db->empty_table('tmp_relasi');
         $this->db->empty_table('tmp_hasil');
-        $this->template->load('back/template', 'back/konsultasi/konsultasi_', $data);
+        $this->template->load('back/front', 'back/konsultasi/index', $data);
     }
 
     function pertanyaan()
@@ -33,11 +30,12 @@ class Konsultasi extends CI_Controller
             "pertanyaan" => $this->M_pengetahuan->getPertanyaan($kdPenyakit),
             "kd_penyakit" => $kdPenyakit,
         );
-        $this->template->load('back/template', 'back/konsultasi/pertanyaan_', $data);
+        $this->template->load('back/front', 'back/konsultasi/pertanyaan', $data);
     }
 
     function tambahhasil()
     {
+        $this->M_konsultasi->clear_data();
         $this->form_validation->set_rules('kd_gejala[]', 'kd_gejala', 'required|trim|xss_clean');
         $this->form_validation->set_rules('poin_gejala[]', 'poin_gejala', 'required|trim|xss_clean');
         $this->form_validation->set_rules('kd_penyakit', 'kd_penyakit', 'required|trim|xss_clean');
@@ -45,12 +43,13 @@ class Konsultasi extends CI_Controller
         $kd_penyakit = $this->input->post('kd_penyakit');
         $konsultasi_id = $this->M_konsultasi->insert(array(
             'kd_penyakit' => $kd_penyakit,
-            'id_user' => $this->session->id_users
+            'id_user' => NULL
         ));
 
         if ($this->form_validation->run() == FALSE) {
             echo validation_errors(); // tampilkan apabila ada error
         } else {
+
             $nm = $this->input->post('poin_gejala');
             $result = array();
 
@@ -66,13 +65,14 @@ class Konsultasi extends CI_Controller
             }
 
             if (count($result) == 0) {
-                redirect('konsultasi/hasil/' . $konsultasi_id);
+                redirect('konsultasi_public/hasil/' . $konsultasi_id);
             }
 
             $test = $this->M_diagnosa->addMany($result); // fungsi  untuk menyimpan multi array ke database
+
             if ($test) {
                 echo "data sukses di input";
-                redirect('konsultasi/hasil/' . $konsultasi_id);
+                redirect('konsultasi_public/hasil/' . $konsultasi_id);
             } else {
                 echo "gagal di input";
             }
@@ -83,11 +83,11 @@ class Konsultasi extends CI_Controller
     {
         $data = array(
             'title' => 'Halaman Hasil',
-            'data_hasil' => $this->M_diagnosa->getHasil($konsultasi_id, $this->session->id_users),
+            'data_hasil' => $this->M_diagnosa->getHasilPublic($konsultasi_id),
             'data_ps' => $this->M_diagnosa->getPS($konsultasi_id),
             'data_pg' => $this->M_diagnosa->getPG($konsultasi_id),
             'data_gj' => $this->M_gejala->getAll()
         );
-        $this->template->load('back/template', 'back/konsultasi/hasil_', $data);
+        $this->template->load('back/front', 'back/konsultasi/hasil', $data);
     }
 }

@@ -1,5 +1,5 @@
 <!-- Main Sidebar Container -->
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-info elevation-4">
 
 
     <!-- Sidebar -->
@@ -21,16 +21,16 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                <li class="nav-item has-treeview menu-open">
-                    <a href="<?= base_url('dashboard') ?>" class="nav-link active">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Dashboard
-                        </p>
-                    </a>
-                </li>
 
                 <?php if (is_it()) { ?>
+                    <li class="nav-item has-treeview">
+                        <a href="<?= base_url('dashboard') ?>" class="nav-link <?php echo uri_string() == 'dashboard' ? 'active' : '' ?>">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Dashboard
+                            </p>
+                        </a>
+                    </li>
 
                     <li class="nav-header">Data Master</li>
                     <li class="nav-item has-treeview">
@@ -90,7 +90,7 @@
                 <?php } else { ?>
 
 
-                    <li class="nav-item has-treeview">
+                    <!-- <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-file"></i>
                             <p>
@@ -114,11 +114,18 @@
                             <i class="nav-icon fas fa-clipboard"></i>
                             <p>Laporan</p>
                         </a>
+                    </li> -->
+
+                    <li class="nav-item">
+                        <a href="<?php echo base_url('konsultasi') ?>" class="nav-link <?php echo str_contains(uri_string(), 'konsultasi') ? 'active' : '' ?>">
+                            <i class="nav-icon fas fa-circle"></i>
+                            <p>Konsultasi</p>
+                        </a>
                     </li>
 
                     <li class="nav-header">Profile</li>
                     <li class="nav-item">
-                        <a href="<?= base_url('karyawan/profile/' . $this->session->id_users); ?>" class="nav-link">
+                        <a href="<?= base_url('karyawan/profile/' . $this->session->id_users); ?>" class="nav-link <?php echo str_contains(uri_string(), 'karyawan/profile') ? 'active' : '' ?>">
                             <i class="nav-icon fas fa-user"></i>
                             <p>Profile User</p>
                         </a>

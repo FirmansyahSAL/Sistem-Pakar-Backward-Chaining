@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 date_default_timezone_set('Asia/Jakarta');
 require_once(APPPATH . '../vendor/autoload.php');
 
-$dotenv = Dotenv\Dotenv::createImmutable(APPPATH);
+$dotenv = Dotenv\Dotenv::create(APPPATH);
 $dotenv->load();
 /*
 |--------------------------------------------------------------------------

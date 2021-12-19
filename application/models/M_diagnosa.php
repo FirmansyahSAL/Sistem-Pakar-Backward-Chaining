@@ -8,23 +8,23 @@ class M_diagnosa extends CI_Model
         return $this->db->insert_batch('diagnosa', $diagnosa);
     }
 
-    function getHasil()
+    function getHasil($konsultasi_id, $iduser)
     {
-        return $this->db->query("select h.kd_penyakit, h.kd_gejala, h.poin_gejala,h.poin_user, g.nama_gejala from diagnosa as h, gejala as g where h.kd_gejala=g.kd_gejala and h.poin_gejala>'0'")->result();
+        return $this->db->query("SELECT * FROM konsultasi k JOIN penyakit p ON p.kd_penyakit=k.kd_penyakit JOIN diagnosa d on k.id=d.konsultasi_id JOIN gejala g on g.kd_gejala=d.kd_gejala WHERE k.id=" . $konsultasi_id . " AND d.poin_gejala>'0' AND k.id_user=" . $iduser)->result();
     }
 
-    function getPS()
+    function getHasilPublic($konsultasi_id)
     {
-        return $this->db->query("select * from diagnosa as h, penyakit as p, gejala as g where h.kd_penyakit=p.kd_penyakit and h.kd_gejala=g.kd_gejala and h.poin_gejala>'0' limit 1")->result();
+        return $this->db->query("SELECT * FROM konsultasi k JOIN penyakit p ON p.kd_penyakit=k.kd_penyakit JOIN diagnosa d on k.id=d.konsultasi_id JOIN gejala g on g.kd_gejala=d.kd_gejala WHERE k.id=" . $konsultasi_id . " AND d.poin_gejala>'0' AND k.id_user IS NULL")->result();
     }
 
-    function getPG()
+    function getPS($konsultasi_id)
     {
-        return $this->db->query("select g.poin_gejala from diagnosa as h, gejala as g where h.kd_gejala=g.kd_gejala and h.poin_gejala='0'")->result();
+        return $this->db->query("SELECT * FROM konsultasi k JOIN penyakit p ON p.kd_penyakit=k.kd_penyakit JOIN diagnosa d on k.id=d.konsultasi_id JOIN gejala g on g.kd_gejala=d.kd_gejala WHERE k.id=" . $konsultasi_id . " AND d.poin_gejala>'0' limit 1")->result();
     }
 
-    function clear_data()
+    function getPG($konsultasi_id)
     {
-        return $this->db->empty_table('diagnosa');
+        return $this->db->query("SELECT * FROM konsultasi k JOIN penyakit p ON p.kd_penyakit=k.kd_penyakit JOIN diagnosa d on k.id=d.konsultasi_id JOIN gejala g on g.kd_gejala=d.kd_gejala WHERE k.id=" . $konsultasi_id . " AND d.poin_gejala='0'")->result();
     }
 }
