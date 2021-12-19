@@ -5,7 +5,7 @@
 
     <!-- end header -->
     <!-- section intro -->
-    <section id="hero" class="d-flex align-items-center" style="height: 100vh;">
+    <section id="hero" class="d-flex align-items-center" style="height: 150vh;">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
