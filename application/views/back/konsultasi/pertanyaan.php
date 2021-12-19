@@ -5,7 +5,7 @@
 
     <!-- end header -->
     <!-- section intro -->
-    <section id="content" class="d-flex align-items-center">
+    <section id="hero" class="d-flex align-items-center" style="height: 100vh;">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -41,8 +41,8 @@
                                         <div class="col-md-8">
                                             <div class="form-group">
                                                 <div class="col-lg-10">
+                                                    <a href="<?php echo site_url('konsultasi') ?>" class="btn btn-light">Kembali</a>
                                                     <button class="btn btn-primary" type="submit">Submit</button>
-                                                    <a href="<?php echo site_url('konsultasi') ?>" class="btn btn-success">Kembali</a>
                                                 </div>
                                             </div>
                                         </div>

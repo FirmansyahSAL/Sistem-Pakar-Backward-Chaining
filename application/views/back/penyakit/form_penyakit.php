@@ -35,7 +35,8 @@
                                 <textarea class="form-control" name="solusi" type="text" rows="3" placeholder="Enter ..."></textarea>
                             </div>
                             <div class="form-group">
-                                <input type="file" name="img_gejala" class="form-control" required="">
+                                <label for="img_gejala">Image</label>
+                                <input type="file" name="img_gejala" id="img_gejala" class="form-control-file" required="">
                                 <div class="input-group-append">
                                 </div>
                             </div>

@@ -66,6 +66,11 @@ class Penyakit extends CI_Controller
     function edit()
     {
         if (isset($_POST['submit'])) {
+            if ($_FILES["img_gejala"]['name'] != "") {
+                $img_gejala = $this->upload();
+            } else {
+                $img_gejala = $this->input->post('img_gejala_old');
+            }
             // proses edit
             $id            =   $this->input->post('kd_penyakit');
             $penyakit   =   $this->input->post('nama_penyakit');
@@ -74,7 +79,8 @@ class Penyakit extends CI_Controller
             $data        =    array(
                 'nama_penyakit' => $penyakit,
                 'penyebab' => $penyebab,
-                'solusi' => $solusi
+                'solusi' => $solusi,
+                'img_gejala' => $img_gejala,
             );
             $this->M_penyakit->updatePenyakit($data, $id);
             redirect('penyakit');

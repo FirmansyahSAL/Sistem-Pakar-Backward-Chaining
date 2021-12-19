@@ -26,8 +26,8 @@
                                                         ?>
                                                     </select>
                                                 </div>
-                                                <div class="col-sm">
-                                                    <img src="" alt="" id="img_penyakit">
+                                                <div class="col-sm d-flex justify-content-center" style="height: 200px;">
+                                                    <img src="" alt="" id="img_penyakit" style="max-height: 200px;">
                                                 </div>
                                             </div>
                                             <div class="form-group py-4">
@@ -51,12 +51,15 @@
             const penyakits = <?php echo json_encode($data_penyakit) ?>;
             const selectVal = document.getElementById("kd_penyakit").value;
             var imgSource = null;
+            var altImage = 'Penyakit image';
             for (let i = 0; i < penyakits.length; i++) {
                 if (penyakits[i].kd_penyakit === selectVal) {
                     imgSource = penyakits[i].img_gejala;
+                    altImage = penyakits[i].nama_penyakit;
                 }
             }
             document.getElementById("img_penyakit").src = `<?php echo base_url('assets/images/perangkat/') ?>${imgSource}`;
+            document.getElementById("img_penyakit").alt = `${altImage} image.`;
         }
     </script>
 

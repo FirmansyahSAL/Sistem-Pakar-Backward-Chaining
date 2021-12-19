@@ -4,7 +4,7 @@
 <body>
     <!-- section intro -->
 
-    <section id="content" class="d-flex align-items-center">
+    <section id="hero" class="d-flex align-items-center">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -80,7 +80,7 @@
                                                 </table>
                                             <?php
                                         } ?>
-                                            <br><br><a href="<?php echo site_url('konsultasi') ?>" class="btn btn-success btn-large">
+                                            <br><br><a href="<?php echo site_url('konsultasi') ?>" class="btn btn-light btn-large">
                                                 <i class="fa fa-list"></i> Konsultasi Kembali</a>
                                 </div>
                             </div>

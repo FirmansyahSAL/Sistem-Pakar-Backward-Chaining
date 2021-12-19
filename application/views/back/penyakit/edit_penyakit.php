@@ -35,7 +35,22 @@
                                 <label>Solusi</label>
                                 <textarea class="form-control" name="solusi" type="text"><?php print $baris['solusi']; ?></textarea>
                             </div>
-
+                            <input type="hidden" id="img_gejala_old" name="img_gejala_old" value="<?php echo $baris['img_gejala']; ?>">
+                            <div class="form-group">
+                                <label for="img_gejala">Image</label>
+                                <!-- <input type="file" name="img_gejala" id="img_gejala" class="form-control-file" required="" > -->
+                                <div class="custom-file">
+                                    <input type="file" name="img_gejala" id="img_gejala" class="form-control-file" required="" onchange="onChangeImg()">
+                                    <label class="custom-file-label" for="img_gejala" id="label_img_gejala"><?php echo $baris['img_gejala'] ? $baris['img_gejala'] : "Choose file..." ?></label>
+                                    <div class="input-group-append">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <?php if ($baris["img_gejala"]) { ?>
+                                    <img id="img_gejala_view" src="<?= base_url('assets/images/perangkat/' . $baris["img_gejala"]); ?>" width=" 50px">
+                                <?php } ?>
+                            </div>
                             <button type="submit" name="submit" class="btn btn-primary btn-sm">Save</button>
                             <button type="reset" class="btn btn-danger btn-sm">Reset</button>
                         </form>
@@ -44,3 +59,17 @@
             </div>
     </section>
 </div>
+<script>
+    function onChangeImg() {
+        const imgGejalaValue = document.getElementById("img_gejala").value;
+        if (imgGejalaValue) {
+            var startIndex = (imgGejalaValue.indexOf('\\') >= 0 ? imgGejalaValue.lastIndexOf('\\') : imgGejalaValue.lastIndexOf('/'));
+            var filename = imgGejalaValue.substring(startIndex);
+            if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
+                filename = filename.substring(1);
+            }
+        }
+        document.getElementById("label_img_gejala").textContent = filename;
+        document.getElementById("img_gejala_view").src = '';
+    }
+</script>
